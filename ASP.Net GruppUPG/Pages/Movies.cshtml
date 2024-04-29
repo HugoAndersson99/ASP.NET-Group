@@ -1,0 +1,88 @@
+﻿@page
+@model ASP.Net_GruppUPG.Pages.MoviesModel
+@{
+}
+@page
+@model ASP.Net_GruppUPG.Pages.MoviesModel
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<style>
+    h1, th, td {
+        border: 1px solid black;
+        padding: 5px; 
+    }
+</style>
+
+<h1>Movies</h1>
+<table class="movieTable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Description</th>
+            <th>Released</th>
+            <th>Length</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.movies != null && Model.movies.Count > 0)
+        {
+            @foreach (var movie in Model.movies)
+            {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td>@movie.Genre</td>
+                    <td>@movie.Description</td>
+                    <td>@movie.ReleaseYear</td>
+                    <td>@movie.LengthMin</td>
+                    <td>
+                        <form method="post">
+                            <a asp-page="./EditMovie" asp-route-id="@movie.MovieId">Edit</a> |
+                            <a asp-page-handler="Delete" asp-route-Movieid="@movie.MovieId">Delete</a>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No movies found</td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewMovie.Title"></label>
+        <input asp-for="NewMovie.Title" class="form-control"/>
+        <span asp-validation-for="NewMovie.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewMovie.Genre"></label>
+        <input asp-for="NewMovie.Genre" class="form-control" />
+        <span asp-validation-for="NewMovie.Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="NewMovie.Description"></label>
+    <input asp-for="NewMovie.Description" class="form-control" />
+    <span asp-validation-for="NewMovie.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewMovie.ReleaseYear"></label>
+        <input asp-for="NewMovie.ReleaseYear" class="form-control" />
+        <span asp-validation-for="NewMovie.ReleaseYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewMovie.LengthMin"></label>
+        <input asp-for="NewMovie.LengthMin" class="form-control" />
+        <span asp-validation-for="NewMovie.LengthMin" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Movie</button>
+</form>
