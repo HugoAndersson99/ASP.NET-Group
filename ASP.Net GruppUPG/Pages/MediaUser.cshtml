@@ -1,0 +1,96 @@
+﻿@page
+@model ASP.Net_GruppUPG.Pages.MediaUserModel
+@{
+    ViewData["Title"] = "Media User";
+}
+
+<style>
+    h1, th, td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+
+<h1>Media Users</h1>
+<table class="mediaUserTable">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.MediaUsers != null && Model.MediaUsers.Count > 0)
+        {
+            @foreach (var MediaUsers in Model.MediaUsers)
+            {
+                <tr>
+                    <td>@MediaUsers.Email</td>
+                    <td>@MediaUsers.FirstName</td>
+                    <td>@MediaUsers.LastName</td>
+                    <td>
+                        <form method="post">
+                            <button class="btn btn-primary" asp-page="./EditMediaUser" asp-route-id="@MediaUsers.Id">Edit</button> |
+                            <button class="btn btn-primary" asp-page-handler="Delete" asp-route-id="@MediaUsers.Id" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No Users found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewMediaUser.Email"></label>
+        <input asp-for="NewMediaUser.Email" class="form-control" />
+        <span asp-validation-for="NewMediaUser.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewMediaUser.Password"></label>
+        <div class="input-group">
+            <input asp-for="NewMediaUser.Password" type="password" class="form-control" />
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <input id="showPassword" type="checkbox"> Show Password
+                </div>
+            </div>
+        </div>
+        <span asp-validation-for="NewMediaUser.Password" class="text-danger"></span>
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="NewMediaUser.FirstName"></label>
+        <input asp-for="NewMediaUser.FirstName" class="form-control" />
+        <span asp-validation-for="NewMediaUser.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewMediaUser.LastName"></label>
+        <input asp-for="NewMediaUser.LastName" class="form-control" />
+        <span asp-validation-for="NewMediaUser.LastName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var showPasswordCheckBox = document.getElementById("showPassword");
+        var passwordInput = document.querySelector("input[type= 'password']");
+
+        showPasswordCheckBox.addEventListener("change", function () {
+            if (this.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    });
+</script> 

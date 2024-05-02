@@ -32,15 +32,16 @@ namespace ASP.Net_GruppUPG.Pages
                 _movieService.AddMovie(NewMovie);
                 return RedirectToPage();
             }
-            return Page();
+            return BadRequest();
         }
 
         public IActionResult OnPostDelete(int movieId)
         {
+           
             var result = _movieService.DeleteMovieById(movieId);
             if (!result)
             {
-                return NotFound();
+               return NotFound();
             }
             return Page();
         }
