@@ -1,0 +1,88 @@
+﻿@page
+@model ASP.Net_GruppUPG.Pages.SeriesModel
+@{
+    ViewData["Title"] = "Series";
+}
+
+<style>
+    h1, th, td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+
+<h1>Series</h1>
+<table class="serieTable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Released</th>
+            <th>Episodes</th>
+            <th>Seasons</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.series != null && Model.series.Count > 0)
+        {
+            @foreach (var series in Model.series)
+            {
+                <tr>
+                    <td>@series.Title</td>
+                    <td>@series.Description</td>
+                    <td>@series.ReleaseYear</td>
+                    <td>@series.Episodes</td>
+                    <td>@series.Seasons</td>
+                    <td>
+                        <form method="post">
+                            <button class="btn btn-primary" asp-page="./EditSeries" asp-route-id="@series.SerieId">Edit</button> |
+                            <button class="btn btn-primary" asp-page-handler="Delete" asp-route-SerieId="@series.SerieId" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+           
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5">No series found</td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewSerie.Title"></label>
+        <input asp-for="NewSerie.Title" class="form-control" />
+        <span asp-validation-for="NewSerie.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewSerie.Description"></label>
+        <input asp-for="NewSerie.Description" class="form-control" />
+        <span asp-validation-for="NewSerie.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewSerie.ReleaseYear"></label>
+        <input asp-for="NewSerie.ReleaseYear" class="form-control" />
+        <span asp-validation-for="NewSerie.ReleaseYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewSerie.Episodes"></label>
+        <input asp-for="NewSerie.Episodes" class="form-control" />
+        <span asp-validation-for="NewSerie.Episodes" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewSerie.Seasons"></label>
+        <input asp-for="NewSerie.Seasons" class="form-control" />
+        <span asp-validation-for="NewSerie.Seasons" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Serie</button>
+
+
+</form>
+
+

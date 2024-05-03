@@ -1,0 +1,38 @@
+﻿@page
+@model ASP.Net_GruppUPG.Pages.EditMovieModel
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+<h1>Edit Movie</h1>
+
+<form method="post">
+    @Html.HiddenFor(model => model.Movie.MovieId)
+    <div class="form-group">
+        <label asp-for="Movie.Title"></label>
+        <input asp-for="Movie.Title" class="form-control"  />
+        <span asp-validation-for="Movie.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Genre"></label>
+        <input asp-for="Movie.Genre" class="form-control" />
+        <span asp-validation-for="Movie.Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.Description"></label>
+        <input asp-for="Movie.Description" class="form-control" />
+        <span asp-validation-for="Movie.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.ReleaseYear"></label>
+        <input asp-for="Movie.ReleaseYear" class="form-control" />
+        <span asp-validation-for="Movie.ReleaseYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Movie.LengthMin"></label>
+        <input asp-for="Movie.LengthMin" class="form-control"  />
+        <span asp-validation-for="Movie.LengthMin" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+

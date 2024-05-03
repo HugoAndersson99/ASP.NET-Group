@@ -1,4 +1,8 @@
-﻿@page
+﻿
+@page
+@model ASP.Net_GruppUPG.Pages.MoviesModel
+@{
+@page
 @model ASP.Net_GruppUPG.Pages.MoviesModel
 @{
     ViewData["Title"] = "Movies";
@@ -36,8 +40,8 @@
                     <td>@movie.LengthMin</td>
                     <td>
                         <form method="post">
-                            <a asp-page="./EditMovie" asp-route-id="@movie.MovieId">Edit</a> |
-                            <a asp-page-handler="Delete" asp-route-Movieid="@movie.MovieId">Delete</a>
+                            <button class="btn btn-primary" asp-page="/EditMovie" asp-route-movieId="@movie.MovieId">Edit</button> |
+                            <button class="btn btn-primary" asp-page-handler="Delete" asp-route-Movieid="@movie.MovieId" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
 
                     </td>
