@@ -37,7 +37,7 @@ namespace ASP.Net_GruppUPG.Pages
                 serieService.AddSerie(NewSerie);
                 return RedirectToPage();
             }
-            return Page();
+            return BadRequest();
         }
 
         public IActionResult OnPostDelete(int serieId)
@@ -47,7 +47,7 @@ namespace ASP.Net_GruppUPG.Pages
             {
                 return NotFound();
             }
-            series = serieService.GetSeries();
+            //series = serieService.GetSeries();
             return Page();
         }
     }

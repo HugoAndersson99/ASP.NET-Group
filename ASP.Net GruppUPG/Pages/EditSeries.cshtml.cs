@@ -49,7 +49,7 @@ namespace ASP.Net_GruppUPG.Pages
             _context.Update(Serie);
 
             await _context.SaveChangesAsync();
-            //_context.Attach(Serie).State = EntityState.Modified;
+            _context.Attach(Serie).State = EntityState.Modified;
 
 
             try

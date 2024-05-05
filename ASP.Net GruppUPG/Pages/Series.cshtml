@@ -35,7 +35,7 @@
                     <td>@series.Seasons</td>
                     <td>
                         <form method="post">
-                            <button class="btn btn-primary" asp-page="./EditSeries" asp-route-id="@series.SerieId">Edit</button> |
+                            <button class="btn btn-primary" asp-page="/EditSeries" asp-route-serieId="@series.SerieId">Edit</button> |
                             <button class="btn btn-primary" asp-page-handler="Delete" asp-route-SerieId="@series.SerieId" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
 
