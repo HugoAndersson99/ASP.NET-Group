@@ -1,13 +1,4 @@
 ﻿using Client_GruppForms.Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Client_GruppForms
 {
@@ -44,6 +35,13 @@ namespace Client_GruppForms
         private void descriptionLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void goToLibraryButton_Click(object sender, EventArgs e)
+        {
+            MediaLibrary mediaLibrary = new MediaLibrary(this.mediaUser);
+            mediaLibrary.Show();
+            this.Hide();
         }
     }
 }
