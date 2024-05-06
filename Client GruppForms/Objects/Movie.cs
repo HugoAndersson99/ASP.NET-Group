@@ -8,6 +8,7 @@
         public string Description { get; set; }
         public int ReleaseYear { get; set; }
         public int LengthMin { get; set; }
+        public List<MediaUser> Users { get; set; }
 
         public Movie(int movieId, string title, string genre, string description, int releaseYear, int lengthMin)
         {
