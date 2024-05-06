@@ -1,5 +1,6 @@
 ﻿using Client_GruppForms.Objects;
 using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 
 namespace Client_GruppForms
@@ -133,6 +134,39 @@ namespace Client_GruppForms
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PutAsync(url, content).Result;
 
+        }
+        public bool AddMovieToLibrary(Movie movie, MediaUser mediaUser)
+        {
+            try
+            {
+                string url = "https://localhost:7196/api/mediauser/addMovieToLibrary";
+                HttpClient client = new HttpClient();
+                var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
+                var response = client.PostAsync(url, requestContent).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    // Handle unsuccessful response
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                MessageBox.Show("Exception: " + ex.Message);
+                return false;
+            }
+
+           // string url = "https://localhost:7196/api/mediauser/addMovieToLibrary";
+           // var content = new StringContent(JsonConvert.SerializeObject(new { movie, mediaUser }), Encoding.UTF8, "application/json");
+           //
+           // HttpClient client = new HttpClient();
+           //
+           // client.PostAsync(url, content);
         }
 
 

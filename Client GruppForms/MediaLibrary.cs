@@ -12,6 +12,12 @@ namespace Client_GruppForms
             InitializeComponent();
             this.mediaUser = mediaUser;
             ShowUser();
+            ShowMediaLibrary();
+        }
+
+        private void ShowMediaLibrary()
+        {
+            //Visa filmer och serier i respektive listbox
         }
 
         private void SignOutButton_Click(object sender, EventArgs e)
