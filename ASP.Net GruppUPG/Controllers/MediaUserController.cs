@@ -7,10 +7,11 @@ namespace ASP.Net_GruppUPG.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class MediaUserController : ControllerBase
     {
         MediaUserService mediaUserService;
-
+        
         public MediaUserController(MediaUserService mediaUserService)
         {
             this.mediaUserService = mediaUserService;
@@ -67,16 +68,32 @@ namespace ASP.Net_GruppUPG.Controllers
             return BadRequest();
         }
         [HttpPost("addMovieToLibrary")]
-        public ActionResult AddMovie([FromBody] AddMovieToLibraryRequest request)
+        public ActionResult AddMovie(Movie movie)
         {
             
-            bool success = mediaUserService.AddMovieToLibrary(request.Movie, request.MediaUser);
+            bool success = mediaUserService.AddMovieToLibrary(movie);
             if (success)
             {
                 return Ok();
             }
             return BadRequest();
         }
+        [HttpPost("user")]
+        public ActionResult GetUser(MediaUser mediaUser)
+        {
+            mediaUserService.SetUser(mediaUser);
+            return Ok();
+        }
+        [HttpGet("movies")]
+        public void addMovies(MediaUser user)
+        {
+            
+            
+            Movie movie = new Movie("Sandarna", "Comedy", "Rolig", 1999, 180);
 
+            movie.Users.Add(user);
+            mediaUserService.Save(movie);
+
+        }
     }
 }

@@ -17,6 +17,11 @@ namespace Client_GruppForms
             ShowUser();
             CheckUser();
             GetMedia();
+            SetUser();
+        }
+        private void SetUser()
+        {
+            myClient.SetUser(mediaUser);
         }
         private void ShowUser()
         {
@@ -158,9 +163,9 @@ namespace Client_GruppForms
                 if (movie.Title == titleLabel.Text)
                 {
                     
-                    choosenMovie = movie;
-                    //mediaUser.MoviesInLibrary.Add(choosenMovie);
-                    bool test = myClient.AddMovieToLibrary(movie, mediaUser);
+                    //movie.Users.Add(mediaUser);
+                    //mediaUser.MoviesInLibrary.Add(movie);
+                    bool test = myClient.AddMovieToLibrary(movie);
                 }
             }
             

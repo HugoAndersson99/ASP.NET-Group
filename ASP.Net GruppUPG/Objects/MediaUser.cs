@@ -31,6 +31,13 @@ namespace ASP.Net_GruppUPG.Objects
             FirstName = firstName;
             LastName = lastName;
         }
+        public MediaUser(string email, string password, string firstName, string lastName)
+        {
+            Email = email;
+            Password = password;
+            FirstName = firstName;
+            LastName = lastName;
+        }
 
         public MediaUser() 
         {
