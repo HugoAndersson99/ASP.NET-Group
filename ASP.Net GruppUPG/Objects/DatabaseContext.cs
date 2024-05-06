@@ -15,6 +15,8 @@ namespace ASP.Net_GruppUPG.Objects
 
         public DbSet<Movie> Movie { get; set; }
 
+        
+
 
     }
 }

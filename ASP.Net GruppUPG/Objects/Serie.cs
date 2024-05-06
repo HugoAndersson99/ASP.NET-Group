@@ -15,6 +15,7 @@ namespace ASP.Net_GruppUPG.Objects
         public int ReleaseYear { get; set; }
         public int Episodes { get; set; }
         public int Seasons { get; set; }
+        public List<MediaUser> Users { get; set; }
 
         public Serie (int serieId, string title, string description, int releaseYear, int episodes, int seasons)
         {

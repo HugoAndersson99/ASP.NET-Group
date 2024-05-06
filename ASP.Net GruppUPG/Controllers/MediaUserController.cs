@@ -66,6 +66,17 @@ namespace ASP.Net_GruppUPG.Controllers
             }
             return BadRequest();
         }
+        [HttpPost("addMovieToLibrary")]
+        public ActionResult AddMovie([FromBody] AddMovieToLibraryRequest request)
+        {
+            
+            bool success = mediaUserService.AddMovieToLibrary(request.Movie, request.MediaUser);
+            if (success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
 
     }
 }

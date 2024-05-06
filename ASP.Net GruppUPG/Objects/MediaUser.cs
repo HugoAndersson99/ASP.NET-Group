@@ -20,6 +20,9 @@ namespace ASP.Net_GruppUPG.Objects
 
         public string LastName { get; set; }
 
+        public List<Movie> MoviesInLibrary { get; set; }
+        public List<Serie> SeriesInLibrary { get; set; }
+
         public MediaUser(int id, string email, string password, string firstName, string lastName)
         {
             Id = id;
@@ -29,6 +32,9 @@ namespace ASP.Net_GruppUPG.Objects
             LastName = lastName;
         }
 
-        public MediaUser() { }
+        public MediaUser() 
+        {
+            
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ASP.Net_GruppUPG.Objects;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP.Net_GruppUPG.Services
 {
@@ -11,7 +12,7 @@ namespace ASP.Net_GruppUPG.Services
         }
         public List<Serie> GetSeries()
         {
-            return db.Serie.ToList();
+            return db.Serie.Include(serie => serie.Users).ToList();
         }
 
         public Serie GetSerieById(int id)

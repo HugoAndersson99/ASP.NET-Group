@@ -1,4 +1,5 @@
 ﻿using ASP.Net_GruppUPG.Objects;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP.Net_GruppUPG.Services
 {
@@ -12,7 +13,7 @@ namespace ASP.Net_GruppUPG.Services
         }
         public List<Movie> GetMovies()
         {
-            return db.Movie.ToList();
+            return db.Movie.Include(movie => movie.Users).ToList();
         }
 
         public Movie GetMovieById(int id)
