@@ -26,6 +26,15 @@ namespace ASP.Net_GruppUPG.Objects
             Episodes = episodes;
             Seasons = seasons;
         }
+        public Serie(string title, string description, int releaseYear, int episodes, int seasons)
+        {
+
+            Title = title;
+            Description = description;
+            ReleaseYear = releaseYear;
+            Episodes = episodes;
+            Seasons = seasons;
+        }
         public Serie() { }
     }
 }
