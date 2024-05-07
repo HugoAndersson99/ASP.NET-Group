@@ -146,29 +146,26 @@ namespace Client_GruppForms
 
         private void addToLibraryButton_Click(object sender, EventArgs e)
         {
-            Serie choosenSerie;
-            Movie choosenMovie;
-            
             foreach (Serie serie in serieList)
             {
                 if (serie.Title == titleLabel.Text)
                 {
-                   
-                    choosenSerie = serie;
-                    
+
+                    //choosenSerie = serie;
+                    bool test = myClient.AddSerieToLibrary(serie);
                 }
             }
             foreach (Movie movie in movieList)
             {
                 if (movie.Title == titleLabel.Text)
                 {
-                    
+
                     //movie.Users.Add(mediaUser);
                     //mediaUser.MoviesInLibrary.Add(movie);
                     bool test = myClient.AddMovieToLibrary(movie);
                 }
             }
-            
+
         }
     }
 }

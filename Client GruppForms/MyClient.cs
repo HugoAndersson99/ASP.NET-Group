@@ -1,6 +1,5 @@
 ﻿using Client_GruppForms.Objects;
 using Newtonsoft.Json;
-using System.Net.Http;
 using System.Text;
 
 namespace Client_GruppForms
@@ -176,14 +175,97 @@ namespace Client_GruppForms
                 return false;
             }
 
-           // string url = "https://localhost:7196/api/mediauser/addMovieToLibrary";
-           // var content = new StringContent(JsonConvert.SerializeObject(new { movie, mediaUser }), Encoding.UTF8, "application/json");
-           //
-           // HttpClient client = new HttpClient();
-           //
-           // client.PostAsync(url, content);
+            // string url = "https://localhost:7196/api/mediauser/addMovieToLibrary";
+            // var content = new StringContent(JsonConvert.SerializeObject(new { movie, mediaUser }), Encoding.UTF8, "application/json");
+            //
+            // HttpClient client = new HttpClient();
+            //
+            // client.PostAsync(url, content);
         }
 
+        public bool AddSerieToLibrary(Serie serie)
+        {
+            try
+            {
+                string url = "https://localhost:7196/api/mediauser/addSerieToLibrary";
+                string json = JsonConvert.SerializeObject(serie);
+                HttpClient client = new HttpClient();
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
+                var response = client.PostAsync(url, content).Result;
 
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    // Handle unsuccessful response
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                MessageBox.Show("Exception: " + ex.Message);
+                return false;
+            }
+        }
+
+        public List<Movie> GetUserMovies(MediaUser mediaUser)
+        {
+            try
+            {
+                string url = $"https://localhost:7196/api/mediauser/user/{mediaUser.Id}/movies";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    List<Movie> userMovies = JsonConvert.DeserializeObject<List<Movie>>(json);
+                    return userMovies;
+                }
+                else
+                {
+                    // Hantera felaktigt svar
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Hantera exception
+                MessageBox.Show("Exception: " + ex.Message);
+                return null;
+            }
+        }
+
+        public List<Serie> GetUserSeries(MediaUser mediaUser)
+        {
+            try
+            {
+                string url = $"https://localhost:7196/api/mediauser/user/{mediaUser.Id}/series";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+                    List<Serie> userSeries = JsonConvert.DeserializeObject<List<Serie>>(json);
+                    return userSeries;
+                }
+                else
+                {
+                    // Hantera felaktigt svar
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Hantera exception
+                MessageBox.Show("Exception: " + ex.Message);
+                return null;
+            }
+        }
     }
 }

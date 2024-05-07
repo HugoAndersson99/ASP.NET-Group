@@ -4,6 +4,7 @@ namespace Client_GruppForms
 {
     public partial class MediaLibrary : Form
     {
+        MyClient myClient = new MyClient();
         MediaUser mediaUser;
         LoginPage loginPage;
 
@@ -17,8 +18,35 @@ namespace Client_GruppForms
 
         private void ShowMediaLibrary()
         {
-            //Visa filmer och serier i respektive listbox
+            List<Movie> userMovies = myClient.GetUserMovies(mediaUser);
+            List<Serie> userSeries = myClient.GetUserSeries(mediaUser);
+
+            if (userMovies != null && userMovies.Count > 0)
+            {
+                foreach (Movie movie in userMovies)
+                {
+                    moviesLibraryListBox.Items.Add(movie.Title);
+                }
+            }
+            else
+            {
+                moviesLibraryListBox.Items.Add("No movies added");
+            }
+
+
+            if (userSeries != null && userSeries.Count > 0)
+            {
+                foreach (Serie serie in userSeries)
+                {
+                    seriesLibraryListBox.Items.Add(serie.Title);
+                }
+            }
+            else
+            {
+                seriesLibraryListBox.Items.Add("No series added");
+            }
         }
+
 
         private void SignOutButton_Click(object sender, EventArgs e)
         {

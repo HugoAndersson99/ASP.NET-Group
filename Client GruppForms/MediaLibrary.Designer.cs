@@ -46,20 +46,20 @@
             // 
             // moviesLibraryListBox
             // 
+            moviesLibraryListBox.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold);
             moviesLibraryListBox.FormattingEnabled = true;
-            moviesLibraryListBox.ItemHeight = 15;
             moviesLibraryListBox.Location = new Point(21, 46);
             moviesLibraryListBox.Name = "moviesLibraryListBox";
-            moviesLibraryListBox.Size = new Size(138, 169);
+            moviesLibraryListBox.Size = new Size(138, 164);
             moviesLibraryListBox.TabIndex = 2;
             // 
             // seriesLibraryListBox
             // 
+            seriesLibraryListBox.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold);
             seriesLibraryListBox.FormattingEnabled = true;
-            seriesLibraryListBox.ItemHeight = 15;
             seriesLibraryListBox.Location = new Point(21, 260);
             seriesLibraryListBox.Name = "seriesLibraryListBox";
-            seriesLibraryListBox.Size = new Size(138, 169);
+            seriesLibraryListBox.Size = new Size(138, 164);
             seriesLibraryListBox.TabIndex = 3;
             // 
             // moviesLabel

@@ -22,8 +22,10 @@ namespace ASP.Net_GruppUPG.Objects
             object value = modelBuilder.Entity<MediaUser>()
                 .HasMany(u => u.MoviesInLibrary)
                 .WithMany(m => m.Users);
-                
-                
+
+
+
+
 
             // Du kan också definiera konventioner eller annat här, om det behövs
         }
