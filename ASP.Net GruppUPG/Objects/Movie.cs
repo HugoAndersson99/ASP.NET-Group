@@ -17,7 +17,7 @@ namespace ASP.Net_GruppUPG.Objects
         public int ReleaseYear { get; set; }
         public int LengthMin { get; set; }
 
-        public List<MediaUser> Users { get; set; }
+        public List<MediaUser> Users { get; set; } = new List<MediaUser>();
 
         public Movie(int movieId, string title, string genre, string description, int releaseYear, int lengthMin)
         {
