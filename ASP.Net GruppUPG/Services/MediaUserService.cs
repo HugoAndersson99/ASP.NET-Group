@@ -6,7 +6,7 @@ namespace ASP.Net_GruppUPG.Services
     public class MediaUserService
     {
         DatabaseContext db;
-        
+        static MediaUser choosenUser;
 
         public MediaUserService(DatabaseContext db)
         {
@@ -64,42 +64,43 @@ namespace ASP.Net_GruppUPG.Services
             db.SaveChanges();
             return true;
         }
+        public void SetUser(MediaUser user)
+        {
+            choosenUser = user;
+        }
 
-        public bool AddMovieToLibrary(Movie movie, MediaUser mediaUser)
+        public bool AddMovieToLibrary(Movie movie)
         {
 
-           // try
-           // {
-           //     Movie movie = db.Movie.Find(movieId);
-           //     MediaUser user = db.MediaUser.Find(userId);
-           //
-           //     if (movie == null || user == null)
-           //     {
-           //         return false; 
-           //     }
-           //
-           //     
-           //         // Add mediaUser to the movie's Users list
-           //        // movie.Users.Add(user);
-           //
-           //         // Add movie to mediaUser's MoviesInLibrary list
-           //         //user.MoviesInLibrary.Add(movie);
-           //     List<Movie> movies = new List<Movie>();
-           //     movies.Add(movie);
-           //     foreach(Movie addMovie in movies)
-           //     {
-           //         user.MoviesInLibrary.Add(addMovie);
-           //     }
-           //
-           //         // Save changes to the database
-           //         db.SaveChanges();
-           //     
-           //     return true;
-           // }
-           // catch (Exception ex)
-           // {
-           //     return false;
-           // }
+           try
+           {
+               //Movie newMovie = db.Movie.Find(movie.MovieId);
+               //MediaUser user = db.MediaUser.Find(mediaUser.Id);
+           
+               if (movie == null || choosenUser == null)
+               {
+                   return false; 
+               }
+           
+               
+                   // Add mediaUser to the movie's Users list
+                  movie.Users.Add(choosenUser);
+           
+                   // Add movie to mediaUser's MoviesInLibrary list
+                   choosenUser.MoviesInLibrary.Add(movie);
+
+
+                // Save changes to the database
+                db.MediaUser.Update(choosenUser);
+                db.Movie.Update(movie);
+                  int count = db.SaveChanges();
+               
+               return true;
+           }
+           catch (Exception ex)
+           {
+               return false;
+           }
 
            //try
            //{
@@ -129,39 +130,39 @@ namespace ASP.Net_GruppUPG.Services
            //    // Log or handle the exception
            //    return false; // Failed to add movie
            //}
-            try
-            {
-                if (movie == null || mediaUser == null)
-                {
-                    return false;
-                }
-            
-                if (!mediaUser.MoviesInLibrary.Any(m => m.MovieId == movie.MovieId))
-                {
-                    //MediaUser user = db.MediaUser.Find(mediaUser.Id);
-                    //Movie updateMovie = db.Movie.Find(movie.MovieId);
-                    
-                    movie.Users.Add(mediaUser);
-                    mediaUser.MoviesInLibrary.Add(movie);
-                    //MediaUserMovie mediaUserMovie = new MediaUserMovie(movie.MovieId, mediaUser.Id);
-                    //db.MediaUserMovie.Add(mediaUserMovie);
 
-                    /*int changesSaved = */db.SaveChanges();
-                    //if (changesSaved > 0)
-                    //{
-                    //    //Saved
-                    //}
-                    //else
-                    //{
-                    //    //Nothing saved
-                    //}
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+           //try
+           //{
+           //    if (movie == null || mediaUser == null)
+           //    {
+           //        return false;
+           //    }
+           //
+           //    if (!mediaUser.MoviesInLibrary.Any(m => m.MovieId == movie.MovieId))
+           //    {
+           //        //MediaUser user = db.MediaUser.Find(mediaUser.Id);
+           //        //Movie updateMovie = db.Movie.Find(movie.MovieId);
+           //        mediaUser.MoviesInLibrary.Add(movie);
+           //        movie.Users.Add(mediaUser);
+           //        //MediaUserMovie mediaUserMovie = new MediaUserMovie(movie.MovieId, mediaUser.Id);
+           //        //db.MediaUserMovie.Add(mediaUserMovie);
+           //        
+           //       int changesSaved = db.SaveChanges();
+           //        if (changesSaved > 0)
+           //        {
+           //            //Saved
+           //        }
+           //        else
+           //        {
+           //            //Nothing saved
+           //        }
+           //    }
+           //    return true;
+           //}
+           //catch (Exception ex)
+           //{
+           //    return false;
+           //}
             //if (movie == null)
             //{
             //    return false;
@@ -171,6 +172,11 @@ namespace ASP.Net_GruppUPG.Services
             //db.SaveChanges();
             //return true;
 
+        }
+        public void Save(Movie movie)
+        {
+            db.Movie.Add(movie);
+            db.SaveChanges();
         }
     }
 }

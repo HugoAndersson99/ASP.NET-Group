@@ -28,6 +28,14 @@ namespace ASP.Net_GruppUPG.Objects
             ReleaseYear = releaseYear;
             LengthMin = lengthMin;
         }
+        public Movie(string title, string genre, string description, int releaseYear, int lengthMin)
+        {
+            Title = title;
+            Genre = genre;
+            Description = description;
+            ReleaseYear = releaseYear;
+            LengthMin = lengthMin;
+        }
 
         public Movie() { }
     }
