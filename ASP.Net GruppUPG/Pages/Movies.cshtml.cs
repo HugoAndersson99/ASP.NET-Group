@@ -27,12 +27,11 @@ namespace ASP.Net_GruppUPG.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _movieService.AddMovie(NewMovie))
             {
-                _movieService.AddMovie(NewMovie);
                 return RedirectToPage();
             }
-            return BadRequest();
+            return RedirectToPage("ErrorPage");
         }
 
         public IActionResult OnPostDelete(int movieId)
@@ -43,7 +42,8 @@ namespace ASP.Net_GruppUPG.Pages
             {
                return NotFound();
             }
-            return Page();
+            return RedirectToPage();
+
         }
     }
 }

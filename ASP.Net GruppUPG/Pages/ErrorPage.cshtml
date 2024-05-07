@@ -1,0 +1,14 @@
+﻿@page
+@model ASP.Net_GruppUPG.Pages.ErrorPageModel
+@{
+    var referringPage = Request.Headers["Referer"].ToString();
+}
+@if(referringPage.Contains("Series") && referringPage.Contains("Movies"))
+{
+    <h1>This Title already exists!</h1>
+
+}
+else
+{
+    <h1>This Email is already in use!</h1>
+}

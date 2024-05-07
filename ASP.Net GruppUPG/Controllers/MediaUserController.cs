@@ -33,7 +33,7 @@ namespace ASP.Net_GruppUPG.Controllers
             return Ok(mediaUser);
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")] 
         public ActionResult DeleteMediaUser(int id)
         {
             bool success = mediaUserService.DeleteMediaUserById(id);
@@ -45,7 +45,6 @@ namespace ASP.Net_GruppUPG.Controllers
         }
 
         [HttpPost("add")]
-
         public ActionResult AddUser(MediaUser mediaUser)
         {
             bool success = mediaUserService.AddMediaUser(mediaUser);

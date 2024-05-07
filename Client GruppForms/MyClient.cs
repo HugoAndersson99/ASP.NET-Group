@@ -88,6 +88,13 @@ namespace Client_GruppForms
             HttpResponseMessage response =
                 client.DeleteAsync(url).Result;
         }
+        public void DeleteUserByID(int id)
+        {
+            string url = "https://localhost:7196/api/mediauser/delete?id=" + id;
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response =
+                client.DeleteAsync(url).Result;
+        }
 
         public void AddMovie(Movie movie)
         {
@@ -122,6 +129,17 @@ namespace Client_GruppForms
             HttpResponseMessage response = client.PutAsync(url, content).Result;
 
         }
+        public void EditUser(MediaUser mediaUser)
+        {
+            string json = JsonConvert.SerializeObject(mediaUser);
+
+            string url = "https://localhost:7196/api/mediauser/edit";
+
+            HttpClient client = new HttpClient();
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PutAsync(url, content).Result;
+
+        }
 
         public void EditSerie(Serie serie)
         {
@@ -143,10 +161,7 @@ namespace Client_GruppForms
             HttpResponseMessage response = client.PostAsync(url, content).Result;
 
         }
-        public void Test(MediaUser mediaUser)
-        {
-
-        }
+       
         public bool AddMovieToLibrary(Movie movie)
         {
             try

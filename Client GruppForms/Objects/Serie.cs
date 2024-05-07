@@ -14,11 +14,20 @@ namespace Client_GruppForms.Objects
         public int ReleaseYear { get; set; }
         public int Episodes { get; set; }
         public int Seasons { get; set; }
-        public List<MediaUser> Users { get; set; }
+        public List<MediaUser> Users { get; set; } = new List<MediaUser>();
 
         public Serie(int serieId, string title, string description, int releaseYear, int episodes, int seasons)
         {
             SerieId = serieId;
+            Title = title;
+            Description = description;
+            ReleaseYear = releaseYear;
+            Episodes = episodes;
+            Seasons = seasons;
+        }
+        public Serie(string title, string description, int releaseYear, int episodes, int seasons)
+        {
+            
             Title = title;
             Description = description;
             ReleaseYear = releaseYear;

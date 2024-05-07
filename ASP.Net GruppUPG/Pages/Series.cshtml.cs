@@ -32,12 +32,11 @@ namespace ASP.Net_GruppUPG.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && serieService.AddSerie(NewSerie))
             {
-                serieService.AddSerie(NewSerie);
                 return RedirectToPage();
             }
-            return BadRequest();
+            return RedirectToPage("ErrorPage");
         }
 
         public IActionResult OnPostDelete(int serieId)
@@ -48,7 +47,7 @@ namespace ASP.Net_GruppUPG.Pages
                 return NotFound();
             }
             //series = serieService.GetSeries();
-            return Page();
+            return RedirectToPage();
         }
     }
 }

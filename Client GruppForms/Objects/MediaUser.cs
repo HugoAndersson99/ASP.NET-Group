@@ -16,8 +16,8 @@ namespace Client_GruppForms.Objects
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<Movie> MoviesInLibrary { get; set; }
-        public List<Serie> SeriesInLibrary { get; set; }
+        public List<Movie> MoviesInLibrary { get; set; } = new List<Movie>();
+        public List<Serie> SeriesInLibrary { get; set; } = new List<Serie>();
 
         public MediaUser(int id, string email, string password, string firstName, string lastName)
         {

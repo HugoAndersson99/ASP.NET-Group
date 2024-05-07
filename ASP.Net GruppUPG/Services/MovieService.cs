@@ -23,7 +23,8 @@ namespace ASP.Net_GruppUPG.Services
 
         public bool AddMovie(Movie movie)
         {
-            if (movie.Title == "")
+            bool titleExists = db.Movie.Any(m  => m.Title == movie.Title);
+            if (movie.Title == "" || titleExists)
             {
                 return false;
             }
