@@ -22,7 +22,8 @@ namespace ASP.Net_GruppUPG.Services
 
         public bool AddSerie(Serie serie)
         {
-            if (serie.Title == null)
+            bool titleExists = db.Serie.Any(s  => s.Title == serie.Title);
+            if (serie.Title == null || titleExists)
             {
                 return false;
             }

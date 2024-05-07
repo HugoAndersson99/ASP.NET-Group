@@ -25,22 +25,23 @@ namespace ASP.Net_GruppUPG.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _mediaUserService.AddMediaUser(NewMediaUser))
             {
-                _mediaUserService.AddMediaUser(NewMediaUser);
                 return RedirectToPage();
             }
-            return Page();
+            return RedirectToPage("ErrorPage");
         }
 
         public IActionResult OnPostDelete (int id)
         {
+
             var result = _mediaUserService.DeleteMediaUserById(id);
             if (!result)
             {
                 return NotFound();
             }
-            return Page();
+            return RedirectToPage();
+
         }
     }
 }

@@ -37,7 +37,8 @@ namespace ASP.Net_GruppUPG.Services
 
         public bool AddMediaUser(MediaUser mediaUser)
         {
-            if (mediaUser == null)
+            bool emailExists = db.MediaUser.Any(m  => m.Email == mediaUser.Email);
+            if (mediaUser == null || emailExists)
             {
                 return false;
             }

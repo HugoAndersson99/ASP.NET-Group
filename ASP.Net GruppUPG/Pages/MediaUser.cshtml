@@ -9,8 +9,17 @@
         border: 1px solid black;
         padding: 5px;
     }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 </style>
 
+@if (Model.MediaUsers.Count > 5)
+{
+    <h5><a href="#addMediaUserForm">Add User</a></h5>
+
+}
 <h1>Media Users</h1>
 <table class="mediaUserTable">
     <thead>
@@ -48,7 +57,7 @@
     </tbody>
 </table>
 
-<form method="post">
+<form id="addMediaUserForm" method="post">
     <div class="form-group">
         <label asp-for="NewMediaUser.Email"></label>
         <input asp-for="NewMediaUser.Email" class="form-control" />
