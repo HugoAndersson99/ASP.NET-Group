@@ -72,28 +72,25 @@ namespace ASP.Net_GruppUPG.Services
 
         public bool AddMovieToLibrary(Movie movie)
         {
-
             try
             {
-                //Movie newMovie = db.Movie.Find(movie.MovieId);
-                //MediaUser user = db.MediaUser.Find(mediaUser.Id);
+                
 
                 if (movie == null || choosenUser == null)
                 {
                     return false;
                 }
 
-
-                // Add mediaUser to the movie's Users list
                 movie.Users.Add(choosenUser);
 
-                // Add movie to mediaUser's MoviesInLibrary list
                 choosenUser.MoviesInLibrary.Add(movie);
 
+                MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
+                Movie movieFromDb = db.Movie.Find(movie.MovieId);
 
-                // Save changes to the database
-                db.MediaUser.Update(choosenUser);
-                db.Movie.Update(movie);
+                userFromDb.MoviesInLibrary.Add(movieFromDb);
+                movieFromDb.Users.Add(userFromDb);
+                
                 int count = db.SaveChanges();
 
                 return true;
@@ -103,7 +100,7 @@ namespace ASP.Net_GruppUPG.Services
                 return false;
             }
 
-
+            
         }
         public bool AddSerieToLibrary(Serie serie)
         {
@@ -119,16 +116,13 @@ namespace ASP.Net_GruppUPG.Services
 
                 choosenUser.SeriesInLibrary.Add(serie);
 
-                //Nedanstående kod fick jag av Niklas som skulle ersätta Update, och han sa också:
-                //och det ni manipulerar just nu är inte sakerna som ligger i DbSetten, utan ni bara ändrar saker som hänger utanför.
-                //Det är vad Update borde fixat, men som jag sade, Update har varit problematisk.
                 MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
-                userFromDb.SeriesInLibrary.Add(serie);
                 Serie serieFromDb = db.Serie.Find(serie.SerieId);
-                serieFromDb.Users.Add(choosenUser);
+                userFromDb.SeriesInLibrary.Add(serieFromDb);
 
-                //db.MediaUser.Update(choosenUser);
-                //db.Serie.Update(serie);
+                serieFromDb.Users.Add(userFromDb);
+
+
                 int count = db.SaveChanges();
 
                 return true;
