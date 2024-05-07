@@ -83,19 +83,30 @@ namespace Client_GruppForms
             registerPanel.SendToBack();
         }
         private bool CheckLogIn()
-        {
-            foreach (MediaUser user in mediaUsers)
+        {   
+            if (loginEmailTextBox.Text == "admin" && loginPasswordTextBox.Text == "admin")
             {
-                if (loginEmailTextBox.Text == user.Email)
-                {
-                    return true;
-                }
+                
+                AdminPage adminPage = new AdminPage(this);
+                adminPage.Show();
+                this.Hide();
+                loginEmailTextBox.Clear();
+                loginPasswordTextBox.Clear();
+                return false;
             }
-            return false;
+            //foreach (MediaUser user in mediaUsers)
+            //{
+            //    if (loginEmailTextBox.Text == user.Email)
+            //    {
+            //        return true;
+            //    }
+            //}
+            return true;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            bool success = false;
             if (loginEmailTextBox.Text != null && loginPasswordTextBox.Text != null)
             {
                 bool login = CheckLogIn();
@@ -105,19 +116,27 @@ namespace Client_GruppForms
                     {
                         if (loginEmailTextBox.Text == user.Email && loginPasswordTextBox.Text == user.Password)
                         {
+                            success = true;
                             MainPage mainPage = new MainPage(user, this);
                             mainPage.Show();
                             loginEmailTextBox.Clear();
                             loginPasswordTextBox.Clear();
                             this.Hide();
+                            break;
                         }
                     }
+                    if (success == false)
+                    {
+                        MessageBox.Show("Wrong Email / Password");
+                        loginPasswordTextBox.Clear();
+
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Wrong Email / Password");
-                    passwordTextBox.Clear();
-                }
+                //if (success ==  false)
+                //{
+                //    MessageBox.Show("Wrong Email / Password");
+                //    passwordTextBox.Clear();
+                //}
             }
         }
 

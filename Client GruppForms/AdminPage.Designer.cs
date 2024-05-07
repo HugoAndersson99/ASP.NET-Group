@@ -78,6 +78,7 @@
             movieTitleTextBox = new TextBox();
             editSelectedMovieButton = new Button();
             editMoviesListBox = new ListBox();
+            logOutButton = new Button();
             editSeriesPanel.SuspendLayout();
             editUsersPanel.SuspendLayout();
             editMoviesPanel.SuspendLayout();
@@ -595,11 +596,23 @@
             editMoviesListBox.Size = new Size(155, 276);
             editMoviesListBox.TabIndex = 0;
             // 
+            // logOutButton
+            // 
+            logOutButton.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            logOutButton.Location = new Point(684, 400);
+            logOutButton.Name = "logOutButton";
+            logOutButton.Size = new Size(102, 33);
+            logOutButton.TabIndex = 17;
+            logOutButton.Text = "Log Out";
+            logOutButton.UseVisualStyleBackColor = true;
+            logOutButton.Click += logOutButton_Click;
+            // 
             // AdminPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(798, 445);
+            Controls.Add(logOutButton);
             Controls.Add(editUsersButton);
             Controls.Add(editSeriesButton);
             Controls.Add(editMoviesButton);
@@ -671,5 +684,6 @@
         private TextBox seasonsTextBox;
         private TextBox serieRelYearTextBox;
         private TextBox seireEpisodesTextBox;
+        private Button logOutButton;
     }
 }

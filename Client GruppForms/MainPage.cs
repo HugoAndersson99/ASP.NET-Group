@@ -167,5 +167,11 @@ namespace Client_GruppForms
             }
 
         }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            loginPage.Show();
+        }
     }
 }

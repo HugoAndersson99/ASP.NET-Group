@@ -19,10 +19,10 @@ namespace Client_GruppForms
         List<MediaUser> mediaUserList;
         List<Serie> serieList;
 
-        public AdminPage()//LoginPage loginPage)
+        public AdminPage(LoginPage loginPage)
         {
             InitializeComponent();
-            //this.loginPage = loginPage;
+            this.loginPage = loginPage;
             GetMedia();
         }
         private void GetMedia()
@@ -478,7 +478,7 @@ namespace Client_GruppForms
             Movie choosenMovie = null;
             foreach (Movie movie in movieList)
             {
-                if(editMoviesListBox.SelectedItem.ToString() == movie.Title)
+                if (editMoviesListBox.SelectedItem.ToString() == movie.Title)
                 {
                     choosenMovie = movie;
                 }
@@ -491,8 +491,8 @@ namespace Client_GruppForms
             choosenMovie.Genre = movieGenreTextBox.Text;
             choosenMovie.LengthMin = length;
             choosenMovie.ReleaseYear = relYear;
-            
-            
+
+
             //Movie newMovie = new Movie(movieTitleTextBox.Text, movieGenreTextBox.Text, movieDescrTextBox.Text, relYear, length);
             myClient.EditMovie(choosenMovie);
             RefreshMovies();
@@ -521,7 +521,7 @@ namespace Client_GruppForms
                 MessageBox.Show("You Must Enter an Password!");
                 return;
             }
-            if(editUserListBox.SelectedItem.ToString() != userEmailTextBox.Text)
+            if (editUserListBox.SelectedItem.ToString() != userEmailTextBox.Text)
             {
                 foreach (MediaUser mediaUser in mediaUserList)
                 {
@@ -535,7 +535,7 @@ namespace Client_GruppForms
             MediaUser choosenUser = null;
             foreach (MediaUser mediaUser in mediaUserList)
             {
-                if(editUserListBox.SelectedItem.ToString() == mediaUser.Email)
+                if (editUserListBox.SelectedItem.ToString() == mediaUser.Email)
                 {
                     choosenUser = mediaUser;
                 }
@@ -548,6 +548,12 @@ namespace Client_GruppForms
             myClient.EditUser(choosenUser);
             RefreshUsers();
             MessageBox.Show("DONE!");
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            loginPage.Show();
         }
     }
 }
