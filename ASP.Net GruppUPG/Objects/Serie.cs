@@ -10,7 +10,7 @@ namespace ASP.Net_GruppUPG.Objects
         public int SerieId { get; set; }
         [MaxLength(50)]
         public string Title { get; set; }
-        [MaxLength(50)]
+        [MaxLength(225)]
         public string Description { get; set; }
         public int ReleaseYear { get; set; }
         public int Episodes { get; set; }

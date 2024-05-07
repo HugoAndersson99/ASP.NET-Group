@@ -47,6 +47,7 @@
                     <td>@movie.ReleaseYear</td>
                     <td>@movie.LengthMin</td>
                     <td>
+                    
                         <form method="post">
                             <button class="btn btn-primary" asp-page="/EditMovie" asp-route-movieId="@movie.MovieId">Edit</button> |
                             <button class="btn btn-primary" asp-page-handler="Delete" asp-route-Movieid="@movie.MovieId" onclick="return confirm('Are you sure?')">Delete</button>

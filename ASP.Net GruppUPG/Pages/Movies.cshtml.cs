@@ -20,8 +20,10 @@ namespace ASP.Net_GruppUPG.Pages
         [BindProperty]
         public Movie NewMovie { get; set; }
 
+
         public void OnGet()
         {
+            
             movies = _movieService.GetMovies();
         }
 

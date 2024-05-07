@@ -14,6 +14,16 @@ namespace ASP.Net_GruppUPG.Services
         public List<Movie> GetMovies()
         {
             return db.Movie.Include(movie => movie.Users).ToList();
+            //return db.Movie
+            //.Select(movie => new Movie
+            //{
+            //    Title = movie.Title,
+            //    Genre = movie.Genre,
+            //    Description = movie.Description,
+            //    ReleaseYear = movie.ReleaseYear,
+            //    LengthMin = movie.LengthMin
+            //})
+            //.ToList();
         }
 
         public Movie GetMovieById(int id)

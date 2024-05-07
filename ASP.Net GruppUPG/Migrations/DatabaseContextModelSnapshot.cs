@@ -98,8 +98,8 @@ namespace ASP.Net_GruppUPG.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasMaxLength(225)
+                        .HasColumnType("varchar(225)");
 
                     b.Property<int>("Episodes")
                         .HasColumnType("int");
