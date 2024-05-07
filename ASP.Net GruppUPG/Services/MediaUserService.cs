@@ -140,20 +140,21 @@ namespace ASP.Net_GruppUPG.Services
                 {
                     //MediaUser user = db.MediaUser.Find(mediaUser.Id);
                     //Movie updateMovie = db.Movie.Find(movie.MovieId);
-                    mediaUser.MoviesInLibrary.Add(movie);
+                    
                     movie.Users.Add(mediaUser);
+                    mediaUser.MoviesInLibrary.Add(movie);
                     //MediaUserMovie mediaUserMovie = new MediaUserMovie(movie.MovieId, mediaUser.Id);
                     //db.MediaUserMovie.Add(mediaUserMovie);
-                    
-                   int changesSaved = db.SaveChanges();
-                    if (changesSaved > 0)
-                    {
-                        //Saved
-                    }
-                    else
-                    {
-                        //Nothing saved
-                    }
+
+                    /*int changesSaved = */db.SaveChanges();
+                    //if (changesSaved > 0)
+                    //{
+                    //    //Saved
+                    //}
+                    //else
+                    //{
+                    //    //Nothing saved
+                    //}
                 }
                 return true;
             }
