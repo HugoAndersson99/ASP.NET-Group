@@ -55,9 +55,9 @@
             // 
             moviesLibraryListBox.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold);
             moviesLibraryListBox.FormattingEnabled = true;
-            moviesLibraryListBox.Location = new Point(21, 46);
+            moviesLibraryListBox.Location = new Point(12, 46);
             moviesLibraryListBox.Name = "moviesLibraryListBox";
-            moviesLibraryListBox.Size = new Size(138, 164);
+            moviesLibraryListBox.Size = new Size(147, 164);
             moviesLibraryListBox.TabIndex = 2;
             moviesLibraryListBox.SelectedIndexChanged += moviesLibraryListBox_SelectedIndexChanged_1;
             // 
@@ -65,9 +65,9 @@
             // 
             seriesLibraryListBox.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold);
             seriesLibraryListBox.FormattingEnabled = true;
-            seriesLibraryListBox.Location = new Point(21, 260);
+            seriesLibraryListBox.Location = new Point(12, 260);
             seriesLibraryListBox.Name = "seriesLibraryListBox";
-            seriesLibraryListBox.Size = new Size(138, 164);
+            seriesLibraryListBox.Size = new Size(147, 164);
             seriesLibraryListBox.TabIndex = 3;
             seriesLibraryListBox.SelectedIndexChanged += seriesLibraryListBox_SelectedIndexChanged_1;
             // 
@@ -85,7 +85,7 @@
             // 
             seriesLabel.AutoSize = true;
             seriesLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            seriesLabel.Location = new Point(50, 235);
+            seriesLabel.Location = new Point(39, 235);
             seriesLabel.Name = "seriesLabel";
             seriesLabel.Size = new Size(71, 22);
             seriesLabel.TabIndex = 5;
@@ -124,7 +124,7 @@
             // 
             changeGenreLabel.AutoSize = true;
             changeGenreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            changeGenreLabel.Location = new Point(206, 336);
+            changeGenreLabel.Location = new Point(206, 320);
             changeGenreLabel.Name = "changeGenreLabel";
             changeGenreLabel.Size = new Size(58, 19);
             changeGenreLabel.TabIndex = 11;
@@ -134,7 +134,7 @@
             // 
             yearLabel.AutoSize = true;
             yearLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            yearLabel.Location = new Point(411, 336);
+            yearLabel.Location = new Point(411, 320);
             yearLabel.Name = "yearLabel";
             yearLabel.Size = new Size(112, 19);
             yearLabel.TabIndex = 12;
@@ -147,7 +147,7 @@
             descriptionText.Location = new Point(206, 255);
             descriptionText.Name = "descriptionText";
             descriptionText.RightToLeft = RightToLeft.No;
-            descriptionText.Size = new Size(329, 81);
+            descriptionText.Size = new Size(329, 65);
             descriptionText.TabIndex = 15;
             descriptionText.Text = resources.GetString("descriptionText.Text");
             descriptionText.TextAlign = ContentAlignment.TopCenter;
@@ -180,7 +180,7 @@
             // 
             yearText.AutoEllipsis = true;
             yearText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            yearText.Location = new Point(405, 363);
+            yearText.Location = new Point(405, 347);
             yearText.Name = "yearText";
             yearText.RightToLeft = RightToLeft.No;
             yearText.Size = new Size(123, 27);
@@ -229,7 +229,7 @@
             // 
             genreText.AutoEllipsis = true;
             genreText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            genreText.Location = new Point(165, 363);
+            genreText.Location = new Point(165, 347);
             genreText.Name = "genreText";
             genreText.RightToLeft = RightToLeft.No;
             genreText.Size = new Size(144, 27);
