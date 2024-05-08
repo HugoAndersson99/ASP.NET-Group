@@ -171,9 +171,14 @@ namespace Client_GruppForms
                 {
 
                     //choosenSerie = serie;
-                    bool test = myClient.AddSerieToLibrary(serie);
-                    MessageBox.Show("Added serie to your library!");
+                    if (/*bool test = */myClient.AddSerieToLibrary(serie))
+                    {
+                        MessageBox.Show("Added serie to your library!");
+
+                    }
+                    else MessageBox.Show("Serie already added!");
                 }
+                
             }
             foreach (Movie movie in movieList)
             {
@@ -182,8 +187,13 @@ namespace Client_GruppForms
 
                     //movie.Users.Add(mediaUser);
                     //mediaUser.MoviesInLibrary.Add(movie);
-                    bool test = myClient.AddMovieToLibrary(movie);
-                    MessageBox.Show("Added movie to your library!");
+                    if (/*bool test = */myClient.AddMovieToLibrary(movie))
+                    {
+                        MessageBox.Show("Added movie to your library!");
+
+                    }
+                    else MessageBox.Show("Movie already added!");
+                    
                 }
             }
         }
