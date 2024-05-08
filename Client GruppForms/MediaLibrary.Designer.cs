@@ -126,9 +126,9 @@
             changeGenreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             changeGenreLabel.Location = new Point(206, 336);
             changeGenreLabel.Name = "changeGenreLabel";
-            changeGenreLabel.Size = new Size(63, 19);
+            changeGenreLabel.Size = new Size(58, 19);
             changeGenreLabel.TabIndex = 11;
-            changeGenreLabel.Text = "Genre:";
+            changeGenreLabel.Text = "Genre";
             // 
             // yearLabel
             // 
@@ -136,9 +136,9 @@
             yearLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             yearLabel.Location = new Point(411, 336);
             yearLabel.Name = "yearLabel";
-            yearLabel.Size = new Size(117, 19);
+            yearLabel.Size = new Size(112, 19);
             yearLabel.TabIndex = 12;
-            yearLabel.Text = "Release Year:";
+            yearLabel.Text = "Release Year";
             // 
             // descriptionText
             // 
@@ -173,7 +173,7 @@
             descriptionLabel.RightToLeft = RightToLeft.No;
             descriptionLabel.Size = new Size(223, 26);
             descriptionLabel.TabIndex = 20;
-            descriptionLabel.Text = "Description:";
+            descriptionLabel.Text = "Description";
             descriptionLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // yearText
