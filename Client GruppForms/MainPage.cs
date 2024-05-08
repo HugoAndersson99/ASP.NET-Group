@@ -1,4 +1,8 @@
 ﻿using Client_GruppForms.Objects;
+using Microsoft.VisualBasic.Devices;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+
 
 namespace Client_GruppForms
 {
@@ -69,6 +73,7 @@ namespace Client_GruppForms
 
         private void moviesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             string choosenMovie = "";
             //seriesListBox.SelectedItems.Clear();
             if (moviesListBox.SelectedItems != null)
@@ -91,6 +96,10 @@ namespace Client_GruppForms
                 }
             }
         }
+        private void ImageFix()
+        {
+            string imageFolderPath = Path.Combine(Application.StartupPath, "Images");
+        }
 
         private void ViewMovie(string title)
         {
@@ -98,6 +107,23 @@ namespace Client_GruppForms
             {
                 if (movie.Title == title)
                 {
+                    string selectedFilmTitle = movie.Title;
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string appDirectory = Directory.GetParent(currentdir).FullName;
+                    string secondChange = Directory.GetParent(appDirectory).FullName;
+                    string thirdChange = Directory.GetParent(secondChange).FullName;
+                    string imageFolderPath = Path.Combine(thirdChange, "MoviesImages");
+                    string imagePath = Path.Combine(imageFolderPath, selectedFilmTitle + ".jpg");
+                    if (File.Exists(imagePath))
+                    {
+                        Image image = Image.FromFile(imagePath);
+                        mediaImage.Image = image;
+                    }
+                    else
+                    {
+                        mediaImage.Image = null;
+                    }
+                    
                     titleLabel.Text = movie.Title;
                     descriptionLabel.Text = movie.Description;
                     genreTextLabel.Text = movie.Genre;
@@ -117,6 +143,24 @@ namespace Client_GruppForms
             {
                 if (serie.Title == title)
                 {
+                    string selectedSerieTitle = serie.Title;
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string appDirectory = Directory.GetParent(currentdir).FullName;
+                    string secondChange = Directory.GetParent(appDirectory).FullName;
+                    string thirdChange = Directory.GetParent(secondChange).FullName;
+                    string imageFolderPath = Path.Combine(thirdChange, "SeriesImages");
+                    string imagePath = Path.Combine(imageFolderPath, selectedSerieTitle + ".jpg");
+                    if (File.Exists(imagePath))
+                    {
+                        Image image = Image.FromFile(imagePath);
+                        mediaImage.Image = image;
+                    }
+                    else
+                    {
+                        mediaImage.Image = null;
+                    }
+
+                    
                     titleLabel.Text = serie.Title;
                     descriptionLabel.Text = serie.Description;
                     genreTextLabel.Text = serie.Seasons.ToString();
@@ -133,6 +177,8 @@ namespace Client_GruppForms
 
         private void seriesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+            moviesListBox.SelectedItems.Clear();
             string choosenSerie = "";
             //moviesListBox.SelectedItems.Clear();
             if (seriesListBox.SelectedItems != null)

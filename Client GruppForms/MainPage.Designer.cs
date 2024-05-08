@@ -51,13 +51,13 @@ namespace Client_GruppForms
             changeGenreLabel = new Label();
             addToLibraryButton = new Button();
             descriptionLabel = new Label();
-            pictureBox1 = new PictureBox();
+            mediaImage = new PictureBox();
             adminPanel = new Panel();
             userPanel.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             mediaPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mediaImage).BeginInit();
             SuspendLayout();
             // 
             // userPanel
@@ -114,7 +114,7 @@ namespace Client_GruppForms
             panel2.Controls.Add(label2);
             panel2.Location = new Point(6, 222);
             panel2.Name = "panel2";
-            panel2.Size = new Size(144, 201);
+            panel2.Size = new Size(176, 201);
             panel2.TabIndex = 2;
             // 
             // seriesListBox
@@ -123,7 +123,7 @@ namespace Client_GruppForms
             seriesListBox.FormattingEnabled = true;
             seriesListBox.Location = new Point(3, 29);
             seriesListBox.Name = "seriesListBox";
-            seriesListBox.Size = new Size(138, 164);
+            seriesListBox.Size = new Size(170, 164);
             seriesListBox.TabIndex = 2;
             seriesListBox.SelectedIndexChanged += seriesListBox_SelectedIndexChanged;
             // 
@@ -143,7 +143,7 @@ namespace Client_GruppForms
             panel1.Controls.Add(label1);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(144, 213);
+            panel1.Size = new Size(179, 213);
             panel1.TabIndex = 1;
             // 
             // moviesListBox
@@ -152,7 +152,7 @@ namespace Client_GruppForms
             moviesListBox.FormattingEnabled = true;
             moviesListBox.Location = new Point(3, 36);
             moviesListBox.Name = "moviesListBox";
-            moviesListBox.Size = new Size(138, 164);
+            moviesListBox.Size = new Size(173, 164);
             moviesListBox.TabIndex = 1;
             moviesListBox.SelectedIndexChanged += moviesListBox_SelectedIndexChanged;
             // 
@@ -177,10 +177,10 @@ namespace Client_GruppForms
             mediaPanel.Controls.Add(changeGenreLabel);
             mediaPanel.Controls.Add(addToLibraryButton);
             mediaPanel.Controls.Add(descriptionLabel);
-            mediaPanel.Controls.Add(pictureBox1);
+            mediaPanel.Controls.Add(mediaImage);
             mediaPanel.Location = new Point(198, 39);
             mediaPanel.Name = "mediaPanel";
-            mediaPanel.Size = new Size(363, 381);
+            mediaPanel.Size = new Size(446, 381);
             mediaPanel.TabIndex = 3;
             mediaPanel.Visible = false;
             // 
@@ -188,7 +188,7 @@ namespace Client_GruppForms
             // 
             changeLengthLabel.AutoEllipsis = true;
             changeLengthLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            changeLengthLabel.Location = new Point(90, 312);
+            changeLengthLabel.Location = new Point(62, 322);
             changeLengthLabel.Name = "changeLengthLabel";
             changeLengthLabel.RightToLeft = RightToLeft.No;
             changeLengthLabel.Size = new Size(169, 27);
@@ -200,7 +200,7 @@ namespace Client_GruppForms
             // 
             lengthTextLabel.AutoEllipsis = true;
             lengthTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lengthTextLabel.Location = new Point(140, 342);
+            lengthTextLabel.Location = new Point(112, 352);
             lengthTextLabel.Name = "lengthTextLabel";
             lengthTextLabel.RightToLeft = RightToLeft.No;
             lengthTextLabel.Size = new Size(63, 27);
@@ -223,11 +223,11 @@ namespace Client_GruppForms
             // genreTextLabel
             // 
             genreTextLabel.AutoEllipsis = true;
-            genreTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            genreTextLabel.Location = new Point(20, 285);
+            genreTextLabel.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            genreTextLabel.Location = new Point(3, 285);
             genreTextLabel.Name = "genreTextLabel";
             genreTextLabel.RightToLeft = RightToLeft.No;
-            genreTextLabel.Size = new Size(123, 27);
+            genreTextLabel.Size = new Size(181, 37);
             genreTextLabel.TabIndex = 12;
             genreTextLabel.Text = "genre";
             genreTextLabel.TextAlign = ContentAlignment.TopCenter;
@@ -236,10 +236,10 @@ namespace Client_GruppForms
             // 
             titleLabel.AutoEllipsis = true;
             titleLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline);
-            titleLabel.Location = new Point(53, 156);
+            titleLabel.Location = new Point(3, 156);
             titleLabel.Name = "titleLabel";
             titleLabel.RightToLeft = RightToLeft.No;
-            titleLabel.Size = new Size(250, 27);
+            titleLabel.Size = new Size(390, 27);
             titleLabel.TabIndex = 10;
             titleLabel.Text = "Title";
             titleLabel.TextAlign = ContentAlignment.TopCenter;
@@ -287,13 +287,14 @@ namespace Client_GruppForms
             descriptionLabel.Text = resources.GetString("descriptionLabel.Text");
             descriptionLabel.TextAlign = ContentAlignment.TopCenter;
             // 
-            // pictureBox1
+            // mediaImage
             // 
-            pictureBox1.Location = new Point(90, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(182, 150);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            mediaImage.Location = new Point(87, 3);
+            mediaImage.Name = "mediaImage";
+            mediaImage.Size = new Size(234, 150);
+            mediaImage.SizeMode = PictureBoxSizeMode.Zoom;
+            mediaImage.TabIndex = 0;
+            mediaImage.TabStop = false;
             // 
             // adminPanel
             // 
@@ -319,7 +320,7 @@ namespace Client_GruppForms
             panel1.PerformLayout();
             mediaPanel.ResumeLayout(false);
             mediaPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mediaImage).EndInit();
             ResumeLayout(false);
         }
 
@@ -333,7 +334,7 @@ namespace Client_GruppForms
         private ListBox seriesListBox;
         private Label label2;
         private ListBox moviesListBox;
-        private PictureBox pictureBox1;
+        private PictureBox mediaImage;
         private Label descriptionLabel;
         private Label label5;
         private Label changeGenreLabel;
