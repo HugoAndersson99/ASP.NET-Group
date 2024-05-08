@@ -8,11 +8,13 @@ namespace Client_GruppForms
         MediaUser mediaUser;
         List<Movie> userMovies;
         List<Serie> userSeries;
+        MainPage MainPage;
 
-        public MediaLibrary(MediaUser mediaUser)
+        public MediaLibrary(MediaUser mediaUser, MainPage mainPage)
         {
             InitializeComponent();
             this.mediaUser = mediaUser;
+            this.MainPage = mainPage;
             ShowUser();
             ShowMediaLibrary();
         }
@@ -112,17 +114,23 @@ namespace Client_GruppForms
 
         private void moviesLibraryListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            string choosenMovie = "";
             //seriesListBox.SelectedItems.Clear();
             if (moviesLibraryListBox.SelectedItems != null)
             {
-                string choosenMovie = moviesLibraryListBox.SelectedItem.ToString();
-
-                foreach (Movie movie in userMovies)
+                if (moviesLibraryListBox.SelectedIndex >= 0)
                 {
-                    string str = movie.Title;
-                    if (str == choosenMovie)
+                    choosenMovie = moviesLibraryListBox.SelectedItem.ToString();
+                }
+                if (userMovies != null)
+                {
+                    foreach (Movie movie in userMovies)
                     {
-                        ViewMovie(movie.Title);
+                        string str = movie.Title;
+                        if (str == choosenMovie)
+                        {
+                            ViewMovie(movie.Title);
+                        }
                     }
                 }
             }
@@ -130,20 +138,33 @@ namespace Client_GruppForms
 
         private void seriesLibraryListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            string choosenSerie = "";
             //seriesListBox.SelectedItems.Clear();
             if (seriesLibraryListBox.SelectedItems != null)
             {
-                string choosenSerie = seriesLibraryListBox.SelectedItem.ToString();
-
-                foreach (Serie serie in userSeries)
+                if (seriesLibraryListBox.SelectedIndex >= 0)
                 {
-                    string str = serie.Title;
-                    if (str == choosenSerie)
+                    choosenSerie = seriesLibraryListBox.SelectedItem.ToString();
+                }
+
+                if (userSeries != null)
+                {
+                    foreach (Serie serie in userSeries)
                     {
-                        ViewSerie(serie.Title);
+                        string str = serie.Title;
+                        if (str == choosenSerie)
+                        {
+                            ViewSerie(serie.Title);
+                        }
                     }
                 }
             }
         }
+
+       private void backButton_Click(object sender, EventArgs e)
+       {
+           this.Close();
+            MainPage.Show();
+       }
     }
 }

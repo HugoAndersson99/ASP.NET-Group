@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -46,6 +46,7 @@
             emailTextBox = new TextBox();
             label3 = new Label();
             label4 = new Label();
+            exitButton = new Button();
             loginPanel.SuspendLayout();
             registerPanel.SuspendLayout();
             SuspendLayout();
@@ -90,6 +91,7 @@
             loginPasswordTextBox.Font = new Font("Agency FB", 14.25F, FontStyle.Bold);
             loginPasswordTextBox.Location = new Point(157, 113);
             loginPasswordTextBox.Name = "loginPasswordTextBox";
+            loginPasswordTextBox.PasswordChar = '*';
             loginPasswordTextBox.Size = new Size(145, 30);
             loginPasswordTextBox.TabIndex = 9;
             // 
@@ -232,11 +234,23 @@
             label4.TabIndex = 6;
             label4.Text = "Email: ";
             // 
+            // exitButton
+            // 
+            exitButton.Font = new Font("Agency FB", 14.25F, FontStyle.Bold);
+            exitButton.Location = new Point(665, 401);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(123, 37);
+            exitButton.TabIndex = 11;
+            exitButton.Text = "Exit Program";
+            exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += exitButton_Click;
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(exitButton);
             Controls.Add(loginPanel);
             Controls.Add(registerPanel);
             Name = "LoginPage";
@@ -268,5 +282,6 @@
         private TextBox emailTextBox;
         private Label label3;
         private Label label4;
+        private Button exitButton;
     }
 }

@@ -48,7 +48,7 @@ namespace Client_GruppForms
 
         private void goToLibraryButton_Click(object sender, EventArgs e)
         {
-            MediaLibrary mediaLibrary = new MediaLibrary(this.mediaUser);
+            MediaLibrary mediaLibrary = new MediaLibrary(this.mediaUser, this);
             mediaLibrary.Show();
             this.Hide();
         }
@@ -69,17 +69,24 @@ namespace Client_GruppForms
 
         private void moviesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string choosenMovie = "";
             //seriesListBox.SelectedItems.Clear();
             if (moviesListBox.SelectedItems != null)
             {
-                string choosenMovie = moviesListBox.SelectedItem.ToString();
-
-                foreach (Movie movie in movieList)
+                if (moviesListBox.SelectedIndex >= 0)
                 {
-                    string str = movie.Title;
-                    if (str == choosenMovie)
+                    choosenMovie = moviesListBox.SelectedItem.ToString();
+                }
+
+                if (movieList != null)
+                {
+                    foreach (Movie movie in movieList)
                     {
-                        ViewMovie(movie.Title);
+                        string str = movie.Title;
+                        if (str == choosenMovie)
+                        {
+                            ViewMovie(movie.Title);
+                        }
                     }
                 }
             }
@@ -98,7 +105,7 @@ namespace Client_GruppForms
                     lengthTextLabel.Text = movie.LengthMin.ToString();
 
                     changeGenreLabel.Text = "Genre";
-                    changeLengthLabel.Text = "Length(Minutes):";
+                    changeLengthLabel.Text = "Length(Minutes)";
 
                     mediaPanel.Visible = true;
                 }
@@ -126,20 +133,32 @@ namespace Client_GruppForms
 
         private void seriesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string choosenSerie = "";
             //moviesListBox.SelectedItems.Clear();
             if (seriesListBox.SelectedItems != null)
             {
-                string choosenSerie = seriesListBox.SelectedItem.ToString();
-
-                foreach (Serie serie in serieList)
+                if (seriesListBox.SelectedIndex >= 0)
                 {
-                    string str = serie.Title;
 
-                    if (str == choosenSerie)
+
+                    choosenSerie = seriesListBox.SelectedItem.ToString();
+                }
+
+
+
+                if (serieList != null)
+                {
+                    foreach (Serie serie in serieList)
                     {
-                        ViewSerie(serie.Title);
+                        string str = serie.Title;
+
+                        if (str == choosenSerie)
+                        {
+                            ViewSerie(serie.Title);
+                        }
                     }
                 }
+
             }
 
         }
@@ -153,6 +172,7 @@ namespace Client_GruppForms
 
                     //choosenSerie = serie;
                     bool test = myClient.AddSerieToLibrary(serie);
+                    MessageBox.Show("Added serie to your library!");
                 }
             }
             foreach (Movie movie in movieList)
@@ -163,6 +183,7 @@ namespace Client_GruppForms
                     //movie.Users.Add(mediaUser);
                     //mediaUser.MoviesInLibrary.Add(movie);
                     bool test = myClient.AddMovieToLibrary(movie);
+                    MessageBox.Show("Added movie to your library!");
                 }
             }
 

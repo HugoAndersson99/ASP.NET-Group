@@ -31,58 +31,60 @@ namespace Client_GruppForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
-            userLabel = new Label();
             userPanel = new Panel();
+            userLabel = new Label();
             logOutButton = new Button();
             goToLibraryButton = new Button();
-            mediaPanel = new Panel();
-            lengthTextLabel = new Label();
-            yearTextLabel = new Label();
-            genreTextLabel = new Label();
-            changeLengthLabel = new Label();
-            label5 = new Label();
-            changeGenreLabel = new Label();
-            addToLibraryButton = new Button();
-            descriptionLabel = new Label();
-            pictureBox1 = new PictureBox();
             panel2 = new Panel();
             seriesListBox = new ListBox();
             label2 = new Label();
             panel1 = new Panel();
             moviesListBox = new ListBox();
             label1 = new Label();
-            adminPanel = new Panel();
+            mediaPanel = new Panel();
+            changeLengthLabel = new Label();
+            lengthTextLabel = new Label();
+            yearTextLabel = new Label();
+            genreTextLabel = new Label();
             titleLabel = new Label();
+            label5 = new Label();
+            changeGenreLabel = new Label();
+            addToLibraryButton = new Button();
+            descriptionLabel = new Label();
+            pictureBox1 = new PictureBox();
+            adminPanel = new Panel();
             userPanel.SuspendLayout();
-            mediaPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            mediaPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // userLabel
-            // 
-            userLabel.AutoSize = true;
-            userLabel.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userLabel.Location = new Point(291, 3);
-            userLabel.Name = "userLabel";
-            userLabel.Size = new Size(18, 30);
-            userLabel.TabIndex = 0;
-            userLabel.Text = ".";
             // 
             // userPanel
             // 
+            userPanel.Controls.Add(userLabel);
             userPanel.Controls.Add(logOutButton);
             userPanel.Controls.Add(goToLibraryButton);
-            userPanel.Controls.Add(mediaPanel);
             userPanel.Controls.Add(panel2);
             userPanel.Controls.Add(panel1);
-            userPanel.Controls.Add(userLabel);
+            userPanel.Controls.Add(mediaPanel);
             userPanel.Location = new Point(12, 12);
             userPanel.Name = "userPanel";
             userPanel.Size = new Size(776, 426);
             userPanel.TabIndex = 1;
             userPanel.Visible = false;
+            // 
+            // userLabel
+            // 
+            userLabel.AutoEllipsis = true;
+            userLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline);
+            userLabel.Location = new Point(251, 9);
+            userLabel.Name = "userLabel";
+            userLabel.RightToLeft = RightToLeft.No;
+            userLabel.Size = new Size(250, 27);
+            userLabel.TabIndex = 11;
+            userLabel.Text = "UserName";
+            userLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // logOutButton
             // 
@@ -105,115 +107,6 @@ namespace Client_GruppForms
             goToLibraryButton.Text = "My Library";
             goToLibraryButton.UseVisualStyleBackColor = true;
             goToLibraryButton.Click += goToLibraryButton_Click;
-            // 
-            // mediaPanel
-            // 
-            mediaPanel.Controls.Add(titleLabel);
-            mediaPanel.Controls.Add(lengthTextLabel);
-            mediaPanel.Controls.Add(yearTextLabel);
-            mediaPanel.Controls.Add(genreTextLabel);
-            mediaPanel.Controls.Add(changeLengthLabel);
-            mediaPanel.Controls.Add(label5);
-            mediaPanel.Controls.Add(changeGenreLabel);
-            mediaPanel.Controls.Add(addToLibraryButton);
-            mediaPanel.Controls.Add(descriptionLabel);
-            mediaPanel.Controls.Add(pictureBox1);
-            mediaPanel.Location = new Point(198, 39);
-            mediaPanel.Name = "mediaPanel";
-            mediaPanel.Size = new Size(363, 351);
-            mediaPanel.TabIndex = 3;
-            mediaPanel.Visible = false;
-            // 
-            // lengthTextLabel
-            // 
-            lengthTextLabel.AutoSize = true;
-            lengthTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
-            lengthTextLabel.Location = new Point(152, 312);
-            lengthTextLabel.Name = "lengthTextLabel";
-            lengthTextLabel.Size = new Size(58, 19);
-            lengthTextLabel.TabIndex = 9;
-            lengthTextLabel.Text = "label7";
-            // 
-            // yearTextLabel
-            // 
-            yearTextLabel.AutoSize = true;
-            yearTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
-            yearTextLabel.Location = new Point(237, 271);
-            yearTextLabel.Name = "yearTextLabel";
-            yearTextLabel.Size = new Size(58, 19);
-            yearTextLabel.TabIndex = 8;
-            yearTextLabel.Text = "label7";
-            // 
-            // genreTextLabel
-            // 
-            genreTextLabel.AutoSize = true;
-            genreTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
-            genreTextLabel.Location = new Point(53, 271);
-            genreTextLabel.Name = "genreTextLabel";
-            genreTextLabel.Size = new Size(58, 19);
-            genreTextLabel.TabIndex = 7;
-            genreTextLabel.Text = "label7";
-            // 
-            // changeLengthLabel
-            // 
-            changeLengthLabel.AutoSize = true;
-            changeLengthLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            changeLengthLabel.Location = new Point(3, 312);
-            changeLengthLabel.Name = "changeLengthLabel";
-            changeLengthLabel.Size = new Size(156, 19);
-            changeLengthLabel.TabIndex = 6;
-            changeLengthLabel.Text = "Length(Minutes): ";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label5.Location = new Point(209, 243);
-            label5.Name = "label5";
-            label5.Size = new Size(112, 19);
-            label5.TabIndex = 5;
-            label5.Text = "Release Year";
-            // 
-            // changeGenreLabel
-            // 
-            changeGenreLabel.AutoSize = true;
-            changeGenreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            changeGenreLabel.Location = new Point(53, 243);
-            changeGenreLabel.Name = "changeGenreLabel";
-            changeGenreLabel.Size = new Size(58, 19);
-            changeGenreLabel.TabIndex = 4;
-            changeGenreLabel.Text = "Genre";
-            // 
-            // addToLibraryButton
-            // 
-            addToLibraryButton.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addToLibraryButton.Location = new Point(237, 312);
-            addToLibraryButton.Name = "addToLibraryButton";
-            addToLibraryButton.Size = new Size(123, 36);
-            addToLibraryButton.TabIndex = 3;
-            addToLibraryButton.Text = "Add To Library";
-            addToLibraryButton.UseVisualStyleBackColor = true;
-            addToLibraryButton.Click += addToLibraryButton_Click;
-            // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoEllipsis = true;
-            descriptionLabel.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            descriptionLabel.Location = new Point(53, 183);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.RightToLeft = RightToLeft.No;
-            descriptionLabel.Size = new Size(250, 50);
-            descriptionLabel.TabIndex = 2;
-            descriptionLabel.Text = resources.GetString("descriptionLabel.Text");
-            descriptionLabel.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(90, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(182, 150);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -273,13 +166,71 @@ namespace Client_GruppForms
             label1.TabIndex = 0;
             label1.Text = "Movies";
             // 
-            // adminPanel
+            // mediaPanel
             // 
-            adminPanel.Location = new Point(12, 12);
-            adminPanel.Name = "adminPanel";
-            adminPanel.Size = new Size(776, 426);
-            adminPanel.TabIndex = 2;
-            adminPanel.Visible = false;
+            mediaPanel.Controls.Add(changeLengthLabel);
+            mediaPanel.Controls.Add(lengthTextLabel);
+            mediaPanel.Controls.Add(yearTextLabel);
+            mediaPanel.Controls.Add(genreTextLabel);
+            mediaPanel.Controls.Add(titleLabel);
+            mediaPanel.Controls.Add(label5);
+            mediaPanel.Controls.Add(changeGenreLabel);
+            mediaPanel.Controls.Add(addToLibraryButton);
+            mediaPanel.Controls.Add(descriptionLabel);
+            mediaPanel.Controls.Add(pictureBox1);
+            mediaPanel.Location = new Point(198, 39);
+            mediaPanel.Name = "mediaPanel";
+            mediaPanel.Size = new Size(363, 381);
+            mediaPanel.TabIndex = 3;
+            mediaPanel.Visible = false;
+            // 
+            // changeLengthLabel
+            // 
+            changeLengthLabel.AutoEllipsis = true;
+            changeLengthLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            changeLengthLabel.Location = new Point(90, 312);
+            changeLengthLabel.Name = "changeLengthLabel";
+            changeLengthLabel.RightToLeft = RightToLeft.No;
+            changeLengthLabel.Size = new Size(169, 27);
+            changeLengthLabel.TabIndex = 14;
+            changeLengthLabel.Text = "Length(Minutes)";
+            changeLengthLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lengthTextLabel
+            // 
+            lengthTextLabel.AutoEllipsis = true;
+            lengthTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lengthTextLabel.Location = new Point(140, 342);
+            lengthTextLabel.Name = "lengthTextLabel";
+            lengthTextLabel.RightToLeft = RightToLeft.No;
+            lengthTextLabel.Size = new Size(63, 27);
+            lengthTextLabel.TabIndex = 13;
+            lengthTextLabel.Text = "100";
+            lengthTextLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // yearTextLabel
+            // 
+            yearTextLabel.AutoEllipsis = true;
+            yearTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            yearTextLabel.Location = new Point(190, 285);
+            yearTextLabel.Name = "yearTextLabel";
+            yearTextLabel.RightToLeft = RightToLeft.No;
+            yearTextLabel.Size = new Size(153, 27);
+            yearTextLabel.TabIndex = 14;
+            yearTextLabel.Text = "Year";
+            yearTextLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // genreTextLabel
+            // 
+            genreTextLabel.AutoEllipsis = true;
+            genreTextLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            genreTextLabel.Location = new Point(20, 285);
+            genreTextLabel.Name = "genreTextLabel";
+            genreTextLabel.RightToLeft = RightToLeft.No;
+            genreTextLabel.Size = new Size(123, 27);
+            genreTextLabel.TabIndex = 12;
+            genreTextLabel.Text = "genre";
+            genreTextLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // titleLabel
             // 
@@ -293,6 +244,65 @@ namespace Client_GruppForms
             titleLabel.Text = "Title";
             titleLabel.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label5.Location = new Point(209, 265);
+            label5.Name = "label5";
+            label5.Size = new Size(112, 19);
+            label5.TabIndex = 5;
+            label5.Text = "Release Year";
+            // 
+            // changeGenreLabel
+            // 
+            changeGenreLabel.AutoSize = true;
+            changeGenreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            changeGenreLabel.Location = new Point(53, 265);
+            changeGenreLabel.Name = "changeGenreLabel";
+            changeGenreLabel.Size = new Size(58, 19);
+            changeGenreLabel.TabIndex = 4;
+            changeGenreLabel.Text = "Genre";
+            // 
+            // addToLibraryButton
+            // 
+            addToLibraryButton.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addToLibraryButton.Location = new Point(237, 342);
+            addToLibraryButton.Name = "addToLibraryButton";
+            addToLibraryButton.Size = new Size(123, 36);
+            addToLibraryButton.TabIndex = 3;
+            addToLibraryButton.Text = "Add To Library";
+            addToLibraryButton.UseVisualStyleBackColor = true;
+            addToLibraryButton.Click += addToLibraryButton_Click;
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoEllipsis = true;
+            descriptionLabel.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            descriptionLabel.Location = new Point(20, 183);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.RightToLeft = RightToLeft.No;
+            descriptionLabel.Size = new Size(323, 82);
+            descriptionLabel.TabIndex = 2;
+            descriptionLabel.Text = resources.GetString("descriptionLabel.Text");
+            descriptionLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(90, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(182, 150);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // adminPanel
+            // 
+            adminPanel.Location = new Point(12, 12);
+            adminPanel.Name = "adminPanel";
+            adminPanel.Size = new Size(776, 426);
+            adminPanel.TabIndex = 2;
+            adminPanel.Visible = false;
+            // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -303,21 +313,17 @@ namespace Client_GruppForms
             Name = "MainPage";
             Text = "MainPage";
             userPanel.ResumeLayout(false);
-            userPanel.PerformLayout();
-            mediaPanel.ResumeLayout(false);
-            mediaPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            mediaPanel.ResumeLayout(false);
+            mediaPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
-
         #endregion
-
-        private Label userLabel;
         private Panel userPanel;
         private Panel adminPanel;
         private Panel panel1;
@@ -329,15 +335,16 @@ namespace Client_GruppForms
         private ListBox moviesListBox;
         private PictureBox pictureBox1;
         private Label descriptionLabel;
-        private Label changeLengthLabel;
         private Label label5;
         private Label changeGenreLabel;
         private Button addToLibraryButton;
         private Button goToLibraryButton;
+        private Button logOutButton;
+        private Label titleLabel;
+        private Label userLabel;
         private Label genreTextLabel;
         private Label lengthTextLabel;
         private Label yearTextLabel;
-        private Button logOutButton;
-        private Label titleLabel;
+        private Label changeLengthLabel;
     }
 }

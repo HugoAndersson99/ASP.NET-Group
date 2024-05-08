@@ -31,9 +31,9 @@ namespace Client_GruppForms
         public void GetAllUsers()
         {
             mediaUsers.Clear();
-            
+
             mediaUsers = myClient.GetAllUsers();
-            
+
         }
         private void RegisterNewUser()
         {
@@ -83,10 +83,10 @@ namespace Client_GruppForms
             registerPanel.SendToBack();
         }
         private bool CheckLogIn()
-        {   
+        {
             if (loginEmailTextBox.Text == "admin" && loginPasswordTextBox.Text == "admin")
             {
-                
+
                 AdminPage adminPage = new AdminPage(this);
                 adminPage.Show();
                 this.Hide();
@@ -143,6 +143,11 @@ namespace Client_GruppForms
         private void registerButton_Click(object sender, EventArgs e)
         {
             registerPanel.BringToFront();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

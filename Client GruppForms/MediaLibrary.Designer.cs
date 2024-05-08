@@ -35,17 +35,19 @@
             seriesLabel = new Label();
             LibraryText = new Label();
             pictureBox = new PictureBox();
-            titleLabel = new Label();
             SignOutButton = new Button();
-            descriptionLabel = new Label();
             changeGenreLabel = new Label();
             yearLabel = new Label();
+            descriptionText = new Label();
+            backButton = new Button();
+            descriptionLabel = new Label();
+            yearText = new Label();
+            titleLabel = new Label();
             changeLengthLabel = new Label();
             userLabel = new Label();
-            descriptionText = new Label();
             genreText = new Label();
-            yearText = new Label();
             lengthText = new Label();
+            addToLibraryButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -92,56 +94,37 @@
             // LibraryText
             // 
             LibraryText.AutoSize = true;
-            LibraryText.Font = new Font("Bookman Old Style", 30F, FontStyle.Bold);
-            LibraryText.Location = new Point(279, 21);
+            LibraryText.Font = new Font("Bookman Old Style", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LibraryText.Location = new Point(165, 9);
             LibraryText.Name = "LibraryText";
-            LibraryText.Size = new Size(304, 47);
+            LibraryText.Size = new Size(205, 32);
             LibraryText.TabIndex = 6;
             LibraryText.Text = "Media Library";
             // 
             // pictureBox
             // 
-            pictureBox.Location = new Point(589, 260);
+            pictureBox.Location = new Point(265, 44);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(182, 160);
+            pictureBox.Size = new Size(193, 157);
             pictureBox.TabIndex = 7;
             pictureBox.TabStop = false;
             // 
-            // titleLabel
-            // 
-            titleLabel.AutoSize = true;
-            titleLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            titleLabel.Location = new Point(206, 107);
-            titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(62, 22);
-            titleLabel.TabIndex = 8;
-            titleLabel.Text = "Title:";
-            // 
             // SignOutButton
             // 
-            SignOutButton.Location = new Point(696, 23);
+            SignOutButton.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SignOutButton.Location = new Point(681, 23);
             SignOutButton.Name = "SignOutButton";
-            SignOutButton.Size = new Size(75, 23);
+            SignOutButton.Size = new Size(90, 25);
             SignOutButton.TabIndex = 9;
             SignOutButton.Text = "Sign Out";
             SignOutButton.UseVisualStyleBackColor = true;
             SignOutButton.Click += SignOutButton_Click;
             // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            descriptionLabel.Location = new Point(206, 167);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new Size(129, 22);
-            descriptionLabel.TabIndex = 10;
-            descriptionLabel.Text = "Description:";
-            // 
             // changeGenreLabel
             // 
             changeGenreLabel.AutoSize = true;
             changeGenreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            changeGenreLabel.Location = new Point(206, 296);
+            changeGenreLabel.Location = new Point(206, 336);
             changeGenreLabel.Name = "changeGenreLabel";
             changeGenreLabel.Size = new Size(63, 19);
             changeGenreLabel.TabIndex = 11;
@@ -151,37 +134,17 @@
             // 
             yearLabel.AutoSize = true;
             yearLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            yearLabel.Location = new Point(411, 296);
+            yearLabel.Location = new Point(411, 336);
             yearLabel.Name = "yearLabel";
             yearLabel.Size = new Size(117, 19);
             yearLabel.TabIndex = 12;
             yearLabel.Text = "Release Year:";
             // 
-            // changeLengthLabel
-            // 
-            changeLengthLabel.AutoSize = true;
-            changeLengthLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            changeLengthLabel.Location = new Point(206, 401);
-            changeLengthLabel.Name = "changeLengthLabel";
-            changeLengthLabel.Size = new Size(156, 19);
-            changeLengthLabel.TabIndex = 13;
-            changeLengthLabel.Text = "Length(Minutes): ";
-            // 
-            // userLabel
-            // 
-            userLabel.AutoSize = true;
-            userLabel.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            userLabel.Location = new Point(344, 68);
-            userLabel.Name = "userLabel";
-            userLabel.Size = new Size(18, 30);
-            userLabel.TabIndex = 14;
-            userLabel.Text = ".";
-            // 
             // descriptionText
             // 
             descriptionText.AutoEllipsis = true;
             descriptionText.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            descriptionText.Location = new Point(206, 200);
+            descriptionText.Location = new Point(206, 255);
             descriptionText.Name = "descriptionText";
             descriptionText.RightToLeft = RightToLeft.No;
             descriptionText.Size = new Size(329, 81);
@@ -190,55 +153,132 @@
             descriptionText.TextAlign = ContentAlignment.TopCenter;
             descriptionText.Visible = false;
             // 
-            // genreText
+            // backButton
             // 
-            genreText.AutoSize = true;
-            genreText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
-            genreText.Location = new Point(206, 331);
-            genreText.Name = "genreText";
-            genreText.Size = new Size(58, 19);
-            genreText.TabIndex = 16;
-            genreText.Text = "label7";
-            genreText.Visible = false;
+            backButton.Font = new Font("Bookman Old Style", 9.75F, FontStyle.Bold);
+            backButton.Location = new Point(681, 56);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(90, 23);
+            backButton.TabIndex = 19;
+            backButton.Text = "Go back";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoEllipsis = true;
+            descriptionLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            descriptionLabel.Location = new Point(250, 229);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.RightToLeft = RightToLeft.No;
+            descriptionLabel.Size = new Size(223, 26);
+            descriptionLabel.TabIndex = 20;
+            descriptionLabel.Text = "Description:";
+            descriptionLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // yearText
             // 
-            yearText.AutoSize = true;
-            yearText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
-            yearText.Location = new Point(436, 331);
+            yearText.AutoEllipsis = true;
+            yearText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            yearText.Location = new Point(405, 363);
             yearText.Name = "yearText";
-            yearText.Size = new Size(58, 19);
-            yearText.TabIndex = 17;
-            yearText.Text = "label7";
+            yearText.RightToLeft = RightToLeft.No;
+            yearText.Size = new Size(123, 27);
+            yearText.TabIndex = 21;
+            yearText.Text = "Year";
+            yearText.TextAlign = ContentAlignment.TopCenter;
             yearText.Visible = false;
+            // 
+            // titleLabel
+            // 
+            titleLabel.AutoEllipsis = true;
+            titleLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            titleLabel.Location = new Point(201, 204);
+            titleLabel.Name = "titleLabel";
+            titleLabel.RightToLeft = RightToLeft.No;
+            titleLabel.Size = new Size(327, 25);
+            titleLabel.TabIndex = 22;
+            titleLabel.Text = "Title:";
+            titleLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // changeLengthLabel
+            // 
+            changeLengthLabel.AutoEllipsis = true;
+            changeLengthLabel.Font = new Font("Bookman Old Style", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            changeLengthLabel.Location = new Point(265, 390);
+            changeLengthLabel.Name = "changeLengthLabel";
+            changeLengthLabel.RightToLeft = RightToLeft.No;
+            changeLengthLabel.Size = new Size(208, 27);
+            changeLengthLabel.TabIndex = 24;
+            changeLengthLabel.Text = "Length(Minutes) ";
+            changeLengthLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // userLabel
+            // 
+            userLabel.AutoEllipsis = true;
+            userLabel.Font = new Font("Bookman Old Style", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            userLabel.Location = new Point(368, 15);
+            userLabel.Name = "userLabel";
+            userLabel.RightToLeft = RightToLeft.No;
+            userLabel.Size = new Size(307, 27);
+            userLabel.TabIndex = 25;
+            userLabel.Text = "UserName";
+            userLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // genreText
+            // 
+            genreText.AutoEllipsis = true;
+            genreText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            genreText.Location = new Point(165, 363);
+            genreText.Name = "genreText";
+            genreText.RightToLeft = RightToLeft.No;
+            genreText.Size = new Size(144, 27);
+            genreText.TabIndex = 26;
+            genreText.Text = "genre";
+            genreText.TextAlign = ContentAlignment.TopCenter;
+            genreText.Visible = false;
             // 
             // lengthText
             // 
-            lengthText.AutoSize = true;
-            lengthText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
-            lengthText.Location = new Point(368, 401);
+            lengthText.AutoEllipsis = true;
+            lengthText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lengthText.Location = new Point(303, 417);
             lengthText.Name = "lengthText";
-            lengthText.Size = new Size(58, 19);
-            lengthText.TabIndex = 18;
-            lengthText.Text = "label7";
+            lengthText.RightToLeft = RightToLeft.No;
+            lengthText.Size = new Size(123, 27);
+            lengthText.TabIndex = 27;
+            lengthText.Text = "180";
+            lengthText.TextAlign = ContentAlignment.TopCenter;
             lengthText.Visible = false;
+            // 
+            // addToLibraryButton
+            // 
+            addToLibraryButton.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addToLibraryButton.Location = new Point(479, 393);
+            addToLibraryButton.Name = "addToLibraryButton";
+            addToLibraryButton.Size = new Size(123, 52);
+            addToLibraryButton.TabIndex = 28;
+            addToLibraryButton.Text = "Remove From Library";
+            addToLibraryButton.UseVisualStyleBackColor = true;
             // 
             // MediaLibrary
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(addToLibraryButton);
             Controls.Add(lengthText);
-            Controls.Add(yearText);
             Controls.Add(genreText);
-            Controls.Add(descriptionText);
             Controls.Add(userLabel);
             Controls.Add(changeLengthLabel);
+            Controls.Add(titleLabel);
+            Controls.Add(yearText);
+            Controls.Add(descriptionLabel);
+            Controls.Add(backButton);
+            Controls.Add(descriptionText);
             Controls.Add(yearLabel);
             Controls.Add(changeGenreLabel);
-            Controls.Add(descriptionLabel);
             Controls.Add(SignOutButton);
-            Controls.Add(titleLabel);
             Controls.Add(pictureBox);
             Controls.Add(LibraryText);
             Controls.Add(seriesLabel);
@@ -260,16 +300,20 @@
         private Label seriesLabel;
         private Label LibraryText;
         private PictureBox pictureBox;
-        private Label titleLabel;
         private Button SignOutButton;
         private Label descriptionLabel;
         private Label changeGenreLabel;
         private Label yearLabel;
-        private Label changeLengthLabel;
-        private Label userLabel;
         private Label descriptionText;
         private Label genreText;
         private Label yearText;
+        private Button backButton;
+        
+        private Label titleLabel;
+        private Label userLabel;
+        private Label genreTextLabel;
         private Label lengthText;
+        private Label changeLengthLabel;
+        private Button addToLibraryButton;
     }
 }
