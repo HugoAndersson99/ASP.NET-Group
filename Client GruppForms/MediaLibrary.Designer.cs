@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaLibrary));
             moviesLibraryListBox = new ListBox();
             seriesLibraryListBox = new ListBox();
             moviesLabel = new Label();
@@ -37,10 +38,14 @@
             titleLabel = new Label();
             SignOutButton = new Button();
             descriptionLabel = new Label();
-            genreLabel = new Label();
+            changeGenreLabel = new Label();
             yearLabel = new Label();
-            minutesLabel = new Label();
+            changeLengthLabel = new Label();
             userLabel = new Label();
+            descriptionText = new Label();
+            genreText = new Label();
+            yearText = new Label();
+            lengthText = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -52,6 +57,7 @@
             moviesLibraryListBox.Name = "moviesLibraryListBox";
             moviesLibraryListBox.Size = new Size(138, 164);
             moviesLibraryListBox.TabIndex = 2;
+            moviesLibraryListBox.SelectedIndexChanged += moviesLibraryListBox_SelectedIndexChanged_1;
             // 
             // seriesLibraryListBox
             // 
@@ -61,6 +67,7 @@
             seriesLibraryListBox.Name = "seriesLibraryListBox";
             seriesLibraryListBox.Size = new Size(138, 164);
             seriesLibraryListBox.TabIndex = 3;
+            seriesLibraryListBox.SelectedIndexChanged += seriesLibraryListBox_SelectedIndexChanged_1;
             // 
             // moviesLabel
             // 
@@ -130,15 +137,15 @@
             descriptionLabel.TabIndex = 10;
             descriptionLabel.Text = "Description:";
             // 
-            // genreLabel
+            // changeGenreLabel
             // 
-            genreLabel.AutoSize = true;
-            genreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            genreLabel.Location = new Point(206, 296);
-            genreLabel.Name = "genreLabel";
-            genreLabel.Size = new Size(63, 19);
-            genreLabel.TabIndex = 11;
-            genreLabel.Text = "Genre:";
+            changeGenreLabel.AutoSize = true;
+            changeGenreLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            changeGenreLabel.Location = new Point(206, 296);
+            changeGenreLabel.Name = "changeGenreLabel";
+            changeGenreLabel.Size = new Size(63, 19);
+            changeGenreLabel.TabIndex = 11;
+            changeGenreLabel.Text = "Genre:";
             // 
             // yearLabel
             // 
@@ -150,15 +157,15 @@
             yearLabel.TabIndex = 12;
             yearLabel.Text = "Release Year:";
             // 
-            // minutesLabel
+            // changeLengthLabel
             // 
-            minutesLabel.AutoSize = true;
-            minutesLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            minutesLabel.Location = new Point(206, 401);
-            minutesLabel.Name = "minutesLabel";
-            minutesLabel.Size = new Size(156, 19);
-            minutesLabel.TabIndex = 13;
-            minutesLabel.Text = "Length(Minutes): ";
+            changeLengthLabel.AutoSize = true;
+            changeLengthLabel.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            changeLengthLabel.Location = new Point(206, 401);
+            changeLengthLabel.Name = "changeLengthLabel";
+            changeLengthLabel.Size = new Size(156, 19);
+            changeLengthLabel.TabIndex = 13;
+            changeLengthLabel.Text = "Length(Minutes): ";
             // 
             // userLabel
             // 
@@ -170,15 +177,65 @@
             userLabel.TabIndex = 14;
             userLabel.Text = ".";
             // 
+            // descriptionText
+            // 
+            descriptionText.AutoEllipsis = true;
+            descriptionText.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            descriptionText.Location = new Point(206, 200);
+            descriptionText.Name = "descriptionText";
+            descriptionText.RightToLeft = RightToLeft.No;
+            descriptionText.Size = new Size(329, 81);
+            descriptionText.TabIndex = 15;
+            descriptionText.Text = resources.GetString("descriptionText.Text");
+            descriptionText.TextAlign = ContentAlignment.TopCenter;
+            descriptionText.Visible = false;
+            // 
+            // genreText
+            // 
+            genreText.AutoSize = true;
+            genreText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
+            genreText.Location = new Point(206, 331);
+            genreText.Name = "genreText";
+            genreText.Size = new Size(58, 19);
+            genreText.TabIndex = 16;
+            genreText.Text = "label7";
+            genreText.Visible = false;
+            // 
+            // yearText
+            // 
+            yearText.AutoSize = true;
+            yearText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
+            yearText.Location = new Point(436, 331);
+            yearText.Name = "yearText";
+            yearText.Size = new Size(58, 19);
+            yearText.TabIndex = 17;
+            yearText.Text = "label7";
+            yearText.Visible = false;
+            // 
+            // lengthText
+            // 
+            lengthText.AutoSize = true;
+            lengthText.Font = new Font("Bookman Old Style", 12F, FontStyle.Bold);
+            lengthText.Location = new Point(368, 401);
+            lengthText.Name = "lengthText";
+            lengthText.Size = new Size(58, 19);
+            lengthText.TabIndex = 18;
+            lengthText.Text = "label7";
+            lengthText.Visible = false;
+            // 
             // MediaLibrary
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lengthText);
+            Controls.Add(yearText);
+            Controls.Add(genreText);
+            Controls.Add(descriptionText);
             Controls.Add(userLabel);
-            Controls.Add(minutesLabel);
+            Controls.Add(changeLengthLabel);
             Controls.Add(yearLabel);
-            Controls.Add(genreLabel);
+            Controls.Add(changeGenreLabel);
             Controls.Add(descriptionLabel);
             Controls.Add(SignOutButton);
             Controls.Add(titleLabel);
@@ -206,9 +263,13 @@
         private Label titleLabel;
         private Button SignOutButton;
         private Label descriptionLabel;
-        private Label genreLabel;
+        private Label changeGenreLabel;
         private Label yearLabel;
-        private Label minutesLabel;
+        private Label changeLengthLabel;
         private Label userLabel;
+        private Label descriptionText;
+        private Label genreText;
+        private Label yearText;
+        private Label lengthText;
     }
 }
