@@ -186,8 +186,9 @@ namespace Client_GruppForms
                     MessageBox.Show("Added movie to your library!");
                 }
             }
-
         }
+
+
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
