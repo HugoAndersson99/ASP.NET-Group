@@ -88,6 +88,30 @@ namespace ASP.Net_GruppUPG.Controllers
             }
             return BadRequest();
         }
+
+        [HttpDelete("removeMovieFromLibrary")]
+        public ActionResult RemoveMovie(Movie movie)
+        {
+
+            bool success = mediaUserService.RemoveMovieFromLibrary(movie);
+            if (success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("addSerieToLibrary")]
+        public ActionResult RemoveSerie(Serie serie)
+        {
+
+            bool success = mediaUserService.RemoveSerieFromLibrary(serie);
+            if (success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
         [HttpPost("user")]
         public ActionResult GetUser(MediaUser mediaUser)
         {

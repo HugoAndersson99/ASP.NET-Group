@@ -74,16 +74,14 @@ namespace ASP.Net_GruppUPG.Services
         {
             try
             {
-                
-
                 if (movie == null || choosenUser == null)
                 {
                     return false;
                 }
 
-                movie.Users.Add(choosenUser);
+                //movie.Users.Add(choosenUser);
 
-                choosenUser.MoviesInLibrary.Add(movie);
+                //choosenUser.MoviesInLibrary.Add(movie);
 
                 MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
                 Movie movieFromDb = db.Movie.Find(movie.MovieId);
@@ -98,15 +96,13 @@ namespace ASP.Net_GruppUPG.Services
             catch (Exception)
             {
                 return false;
-            }
-
-            
+            }  
         }
+
         public bool AddSerieToLibrary(Serie serie)
         {
             try
             {
-
                 if (serie == null || choosenUser == null)
                 {
                     return false;
@@ -121,6 +117,65 @@ namespace ASP.Net_GruppUPG.Services
                 userFromDb.SeriesInLibrary.Add(serieFromDb);
 
                 serieFromDb.Users.Add(userFromDb);
+
+
+                int count = db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool RemoveMovieFromLibrary(Movie movie)
+        {
+            try
+            {
+                if (movie == null || choosenUser == null)
+                {
+                    return false;
+                }
+
+                //movie.Users.Add(choosenUser);
+
+                //choosenUser.MoviesInLibrary.Add(movie);
+
+                MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
+                Movie movieFromDb = db.Movie.Find(movie.MovieId);
+
+                userFromDb.MoviesInLibrary.Remove(movieFromDb);
+                movieFromDb.Users.Remove(userFromDb);
+
+                int count = db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool RemoveSerieFromLibrary(Serie serie)
+        {
+            try
+            {
+                if (serie == null || choosenUser == null)
+                {
+                    return false;
+                }
+
+                // serie.Users.Add(choosenUser);
+
+                // choosenUser.SeriesInLibrary.Add(serie);
+
+                MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
+                Serie serieFromDb = db.Serie.Find(serie.SerieId);
+                userFromDb.SeriesInLibrary.Remove(serieFromDb);
+
+                serieFromDb.Users.Remove(userFromDb);
 
 
                 int count = db.SaveChanges();

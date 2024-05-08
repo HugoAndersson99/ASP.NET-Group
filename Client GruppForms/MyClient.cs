@@ -282,5 +282,63 @@ namespace Client_GruppForms
                 return null;
             }
         }
+
+        public bool RemoveMovieFromLibrary(Movie movie)
+        {
+            try
+            {
+                string url = "https://localhost:7196/api/mediauser/removeMovieFromLibrary";
+                string json = JsonConvert.SerializeObject(movie);
+                HttpClient client = new HttpClient();
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
+                var response = client.PostAsync(url, content).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    // Handle unsuccessful response
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                MessageBox.Show("Exception: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool RemoveSerieFromLibrary(Serie serie)
+        {
+            try
+            {
+                string url = "https://localhost:7196/api/mediauser/removeSerieFromLibrary";
+                string json = JsonConvert.SerializeObject(serie);
+                HttpClient client = new HttpClient();
+                HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
+                var response = client.PostAsync(url, content).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    // Handle unsuccessful response
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                MessageBox.Show("Exception: " + ex.Message);
+                return false;
+            }
+        }
     }
 }

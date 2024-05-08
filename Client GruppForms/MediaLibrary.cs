@@ -161,10 +161,35 @@ namespace Client_GruppForms
             }
         }
 
-       private void backButton_Click(object sender, EventArgs e)
-       {
-           this.Close();
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
             MainPage.Show();
-       }
+        }
+
+        private void removeFromLibaryButton_Click(object sender, EventArgs e)
+        {
+            foreach (Serie serie in userSeries)
+            {
+                if (serie.Title == titleLabel.Text)
+                {
+
+                    //choosenSerie = serie;
+                    bool test = myClient.RemoveSerieFromLibrary(serie);
+                    MessageBox.Show("Added serie to your library!");
+                }
+            }
+            foreach (Movie movie in userMovies)
+            {
+                if (movie.Title == titleLabel.Text)
+                {
+
+                    //movie.Users.Add(mediaUser);
+                    //mediaUser.MoviesInLibrary.Add(movie);
+                    bool test = myClient.RemoveMovieFromLibrary(movie);
+                    MessageBox.Show("Added movie to your library!");
+                }
+            }
+        }
     }
 }
