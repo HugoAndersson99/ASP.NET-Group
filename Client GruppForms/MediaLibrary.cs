@@ -167,28 +167,73 @@ namespace Client_GruppForms
             MainPage.Show();
         }
 
-        private void removeFromLibaryButton_Click(object sender, EventArgs e)
+        private void removeFromLibraryButton_Click(object sender, EventArgs e)
         {
-            foreach (Serie serie in userSeries)
-            {
-                if (serie.Title == titleLabel.Text)
-                {
+            //foreach (Serie serie in userSeries)
+            //{
+            //    if (serie.Title == titleLabel.Text)
+            //    {
 
-                    //choosenSerie = serie;
-                    bool test = myClient.RemoveSerieFromLibrary(serie);
-                    MessageBox.Show("Added serie to your library!");
+            //        //choosenSerie = serie;
+            //        bool test = myClient.RemoveSerieFromLibrary(serie);
+            //        MessageBox.Show("Removed serie from your library!");
+            //    }
+            //}
+            //foreach (Movie movie in userMovies)
+            //{
+            //    if (movie.Title == titleLabel.Text)
+            //    {
+
+            //        //movie.Users.Add(mediaUser);
+            //        //mediaUser.MoviesInLibrary.Add(movie);
+            //        bool test = myClient.RemoveMovieFromLibrary(movie);
+            //        MessageBox.Show("Removed movie from your library!");
+            //    }
+            //}
+
+            bool isRemoved = false; // Används för att kontrollera om något objekt togs bort
+
+            if (userSeries != null)
+            {
+                foreach (Serie serie in userSeries)
+                {
+                    if (serie.Title == titleLabel.Text)
+                    {
+                        bool test = myClient.RemoveSerieFromLibrary(serie);
+                        if (test)
+                        {
+                            MessageBox.Show("Serie removed from your library!");
+                            isRemoved = true; // Markera att en serie togs bort
+                        }
+                    }
                 }
             }
-            foreach (Movie movie in userMovies)
-            {
-                if (movie.Title == titleLabel.Text)
-                {
 
-                    //movie.Users.Add(mediaUser);
-                    //mediaUser.MoviesInLibrary.Add(movie);
-                    bool test = myClient.RemoveMovieFromLibrary(movie);
-                    MessageBox.Show("Added movie to your library!");
+            if (userMovies != null)
+            {
+                foreach (Movie movie in userMovies)
+                {
+                    if (movie.Title == titleLabel.Text)
+                    {
+                        bool test = myClient.RemoveMovieFromLibrary(movie);
+                        if (test)
+                        {
+                            MessageBox.Show("Movie removed from your library!");
+                            isRemoved = true; // Markera att en film togs bort
+                        }
+                    }
                 }
+            }
+
+            // Om något objekt togs bort, uppdatera listorna och visa de senaste ändringarna
+            if (isRemoved)
+            {
+                // Rensa de nuvarande listbox-objekten
+                moviesLibraryListBox.Items.Clear();
+                seriesLibraryListBox.Items.Clear();
+
+                // Uppdatera listorna och visa de senaste ändringarna
+                ShowMediaLibrary();
             }
         }
     }

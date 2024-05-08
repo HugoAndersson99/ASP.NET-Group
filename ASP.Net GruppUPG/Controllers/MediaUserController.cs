@@ -89,7 +89,7 @@ namespace ASP.Net_GruppUPG.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("removeMovieFromLibrary")]
+        [HttpPost("removeMovieFromLibrary")]
         public ActionResult RemoveMovie(Movie movie)
         {
 
@@ -101,7 +101,7 @@ namespace ASP.Net_GruppUPG.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("addSerieToLibrary")]
+        [HttpPost("removeSerieFromLibrary")]
         public ActionResult RemoveSerie(Serie serie)
         {
 

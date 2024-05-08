@@ -133,24 +133,28 @@ namespace ASP.Net_GruppUPG.Services
         {
             try
             {
-                if (movie == null || choosenUser == null)
+                if (choosenUser == null)
                 {
                     return false;
                 }
 
-                //movie.Users.Add(choosenUser);
+                // Ladda användaren inklusive dess relaterade filmer
+                var userFromDb = db.MediaUser
+                    .Include(u => u.MoviesInLibrary)
+                    .FirstOrDefault(u => u.Id == choosenUser.Id);
 
-                //choosenUser.MoviesInLibrary.Add(movie);
+                if (userFromDb != null)
+                {
+                    var movieToRemove = userFromDb.MoviesInLibrary.FirstOrDefault(m => m.MovieId == movie.MovieId);
+                    if (movieToRemove != null)
+                    {
+                        userFromDb.MoviesInLibrary.Remove(movieToRemove);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
 
-                MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
-                Movie movieFromDb = db.Movie.Find(movie.MovieId);
-
-                userFromDb.MoviesInLibrary.Remove(movieFromDb);
-                movieFromDb.Users.Remove(userFromDb);
-
-                int count = db.SaveChanges();
-
-                return true;
+                return false;
             }
             catch (Exception)
             {
@@ -162,31 +166,34 @@ namespace ASP.Net_GruppUPG.Services
         {
             try
             {
-                if (serie == null || choosenUser == null)
+                if (choosenUser == null || serie == null)
                 {
                     return false;
                 }
 
-                // serie.Users.Add(choosenUser);
+                var userFromDb = db.MediaUser
+                    .Include(u => u.SeriesInLibrary)
+                    .FirstOrDefault(u => u.Id == choosenUser.Id);
 
-                // choosenUser.SeriesInLibrary.Add(serie);
+                if (userFromDb != null)
+                {
+                    var serieToRemove = userFromDb.SeriesInLibrary.FirstOrDefault(s => s.SerieId == serie.SerieId);
+                    if (serieToRemove != null)
+                    {
+                        userFromDb.SeriesInLibrary.Remove(serieToRemove);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
 
-                MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
-                Serie serieFromDb = db.Serie.Find(serie.SerieId);
-                userFromDb.SeriesInLibrary.Remove(serieFromDb);
-
-                serieFromDb.Users.Remove(userFromDb);
-
-
-                int count = db.SaveChanges();
-
-                return true;
+                return false;
             }
             catch (Exception)
             {
                 return false;
             }
         }
+
 
         public void Save(Movie movie)
         {

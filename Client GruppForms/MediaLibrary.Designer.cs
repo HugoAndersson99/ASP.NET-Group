@@ -47,7 +47,7 @@
             userLabel = new Label();
             genreText = new Label();
             lengthText = new Label();
-            removeFromLibaryButton = new Button();
+            removeFromLibraryButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -251,23 +251,23 @@
             lengthText.TextAlign = ContentAlignment.TopCenter;
             lengthText.Visible = false;
             // 
-            // removeFromLibaryButton
+            // removeFromLibraryButton
             // 
-            removeFromLibaryButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            removeFromLibaryButton.Location = new Point(479, 393);
-            removeFromLibaryButton.Name = "removeFromLibaryButton";
-            removeFromLibaryButton.Size = new Size(123, 52);
-            removeFromLibaryButton.TabIndex = 28;
-            removeFromLibaryButton.Text = "Remove From Library";
-            removeFromLibaryButton.UseVisualStyleBackColor = true;
-            removeFromLibaryButton.Click += removeFromLibaryButton_Click;
+            removeFromLibraryButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            removeFromLibraryButton.Location = new Point(479, 393);
+            removeFromLibraryButton.Name = "removeFromLibraryButton";
+            removeFromLibraryButton.Size = new Size(123, 52);
+            removeFromLibraryButton.TabIndex = 28;
+            removeFromLibraryButton.Text = "Remove From Library";
+            removeFromLibraryButton.UseVisualStyleBackColor = true;
+            removeFromLibraryButton.Click += removeFromLibraryButton_Click;
             // 
             // MediaLibrary
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(removeFromLibaryButton);
+            Controls.Add(removeFromLibraryButton);
             Controls.Add(lengthText);
             Controls.Add(genreText);
             Controls.Add(userLabel);
@@ -315,6 +315,6 @@
         private Label genreTextLabel;
         private Label lengthText;
         private Label changeLengthLabel;
-        private Button removeFromLibaryButton;
+        private Button removeFromLibraryButton;
     }
 }
