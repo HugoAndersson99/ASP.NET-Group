@@ -3,10 +3,13 @@
 @{
     var referringPage = Request.Headers["Referer"].ToString();
 }
-@if(referringPage.Contains("Series") && referringPage.Contains("Movies"))
+@if (referringPage.Contains("Movies"))
 {
     <h1>This Title already exists!</h1>
-
+}
+else if (referringPage.Contains("Series"))
+{
+    <h1>This Title already exists!</h1>
 }
 else
 {
