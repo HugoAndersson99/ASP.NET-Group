@@ -155,7 +155,7 @@ namespace Client_GruppForms
                 MessageBox.Show("You much choose a user!");
                 return;
             }
-            //MediaUser userCopy = null;
+         
             foreach (MediaUser mediaUser in mediaUserList)
             {
                 if (userEmailTextBox.Text == mediaUser.Email)
@@ -431,7 +431,7 @@ namespace Client_GruppForms
             choosenSerie.Episodes = episodes;
             choosenSerie.ReleaseYear = relYear;
             choosenSerie.Seasons = seasons;
-            //Serie newSerie = new Serie(serieTitleTextbox.Text, serieDescrTextBox.Text, relYear, episodes, seasons);
+
             myClient.EditSerie(choosenSerie);
             RefreshSeries();
             MessageBox.Show("DONE!");
@@ -492,8 +492,6 @@ namespace Client_GruppForms
             choosenMovie.LengthMin = length;
             choosenMovie.ReleaseYear = relYear;
 
-
-            //Movie newMovie = new Movie(movieTitleTextBox.Text, movieGenreTextBox.Text, movieDescrTextBox.Text, relYear, length);
             myClient.EditMovie(choosenMovie);
             RefreshMovies();
             MessageBox.Show("DONE!");
@@ -544,7 +542,7 @@ namespace Client_GruppForms
             choosenUser.LastName = userLastNameTextBox.Text;
             choosenUser.Email = userEmailTextBox.Text;
             choosenUser.Password = userPasswordTextBox.Text;
-            //MediaUser newUser = new MediaUser(userEmailTextBox.Text, userPasswordTextBox.Text, userFirstNameTextBox.Text, userLastNameTextBox.Text);
+
             myClient.EditUser(choosenUser);
             RefreshUsers();
             MessageBox.Show("DONE!");

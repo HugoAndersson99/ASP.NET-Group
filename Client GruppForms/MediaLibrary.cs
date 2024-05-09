@@ -56,6 +56,24 @@ namespace Client_GruppForms
             {
                 if (movie.Title == title)
                 {
+                    string selectedFilmTitle = movie.Title;
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string appDirectory = Directory.GetParent(currentdir).FullName;
+                    string secondChange = Directory.GetParent(appDirectory).FullName;
+                    string thirdChange = Directory.GetParent(secondChange).FullName;
+                    string imageFolderPath = Path.Combine(thirdChange, "MoviesImages");
+                    string imagePath = Path.Combine(imageFolderPath, selectedFilmTitle + ".jpg");
+                    if (File.Exists(imagePath))
+                    {
+                        Image image = Image.FromFile(imagePath);
+                        pictureBox.Image = image;
+                    }
+                    else
+                    {
+                        imagePath = Path.Combine(imageFolderPath, "imageNotFound.jpg");
+                        pictureBox.Image = Image.FromFile(imagePath);
+                    }
+
                     titleLabel.Text = movie.Title;
                     descriptionText.Text = movie.Description;
                     genreText.Text = movie.Genre;
@@ -80,6 +98,25 @@ namespace Client_GruppForms
             {
                 if (serie.Title == title)
                 {
+
+                    string selectedSerieTitle = serie.Title;
+                    string currentdir = Directory.GetCurrentDirectory();
+                    string appDirectory = Directory.GetParent(currentdir).FullName;
+                    string secondChange = Directory.GetParent(appDirectory).FullName;
+                    string thirdChange = Directory.GetParent(secondChange).FullName;
+                    string imageFolderPath = Path.Combine(thirdChange, "SeriesImages");
+                    string imagePath = Path.Combine(imageFolderPath, selectedSerieTitle + ".jpg");
+                    if (File.Exists(imagePath))
+                    {
+                        Image image = Image.FromFile(imagePath);
+                        pictureBox.Image = image;
+                    }
+                    else
+                    {
+                        imagePath = Path.Combine(imageFolderPath, "imageNotFound.jpg");
+                        pictureBox.Image = Image.FromFile(imagePath);
+                    }
+
                     titleLabel.Text = serie.Title;
                     descriptionText.Text = serie.Description;
                     genreText.Text = serie.Seasons.ToString();
@@ -115,7 +152,6 @@ namespace Client_GruppForms
         private void moviesLibraryListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string choosenMovie = "";
-            //seriesListBox.SelectedItems.Clear();
             if (moviesLibraryListBox.SelectedItems != null)
             {
                 if (moviesLibraryListBox.SelectedIndex >= 0)
@@ -139,7 +175,6 @@ namespace Client_GruppForms
         private void seriesLibraryListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string choosenSerie = "";
-            //seriesListBox.SelectedItems.Clear();
             if (seriesLibraryListBox.SelectedItems != null)
             {
                 if (seriesLibraryListBox.SelectedIndex >= 0)
@@ -169,29 +204,7 @@ namespace Client_GruppForms
 
         private void removeFromLibraryButton_Click(object sender, EventArgs e)
         {
-            //foreach (Serie serie in userSeries)
-            //{
-            //    if (serie.Title == titleLabel.Text)
-            //    {
-
-            //        //choosenSerie = serie;
-            //        bool test = myClient.RemoveSerieFromLibrary(serie);
-            //        MessageBox.Show("Removed serie from your library!");
-            //    }
-            //}
-            //foreach (Movie movie in userMovies)
-            //{
-            //    if (movie.Title == titleLabel.Text)
-            //    {
-
-            //        //movie.Users.Add(mediaUser);
-            //        //mediaUser.MoviesInLibrary.Add(movie);
-            //        bool test = myClient.RemoveMovieFromLibrary(movie);
-            //        MessageBox.Show("Removed movie from your library!");
-            //    }
-            //}
-
-            bool isRemoved = false; // Används för att kontrollera om något objekt togs bort
+            bool isRemoved = false;
 
             if (userSeries != null)
             {
@@ -203,7 +216,7 @@ namespace Client_GruppForms
                         if (test)
                         {
                             MessageBox.Show("Serie removed from your library!");
-                            isRemoved = true; // Markera att en serie togs bort
+                            isRemoved = true;
                         }
                     }
                 }
@@ -219,22 +232,24 @@ namespace Client_GruppForms
                         if (test)
                         {
                             MessageBox.Show("Movie removed from your library!");
-                            isRemoved = true; // Markera att en film togs bort
+                            isRemoved = true;
                         }
                     }
                 }
             }
 
-            // Om något objekt togs bort, uppdatera listorna och visa de senaste ändringarna
             if (isRemoved)
             {
-                // Rensa de nuvarande listbox-objekten
                 moviesLibraryListBox.Items.Clear();
                 seriesLibraryListBox.Items.Clear();
 
-                // Uppdatera listorna och visa de senaste ändringarna
                 ShowMediaLibrary();
             }
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

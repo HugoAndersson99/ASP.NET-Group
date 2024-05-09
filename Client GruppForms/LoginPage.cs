@@ -94,13 +94,6 @@ namespace Client_GruppForms
                 loginPasswordTextBox.Clear();
                 return false;
             }
-            //foreach (MediaUser user in mediaUsers)
-            //{
-            //    if (loginEmailTextBox.Text == user.Email)
-            //    {
-            //        return true;
-            //    }
-            //}
             return true;
         }
 
@@ -132,11 +125,6 @@ namespace Client_GruppForms
 
                     }
                 }
-                //if (success ==  false)
-                //{
-                //    MessageBox.Show("Wrong Email / Password");
-                //    passwordTextBox.Clear();
-                //}
             }
         }
 
