@@ -170,7 +170,6 @@ namespace Client_GruppForms
                 string json = JsonConvert.SerializeObject(movie);
                 HttpClient client = new HttpClient();
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
                 var response = client.PostAsync(url, content).Result;
 
                 if (response.IsSuccessStatusCode)
@@ -179,23 +178,15 @@ namespace Client_GruppForms
                 }
                 else
                 {
-                    // Handle unsuccessful response
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                // Handle exception
                 MessageBox.Show("Exception: " + ex.Message);
                 return false;
             }
 
-            // string url = "https://localhost:7196/api/mediauser/addMovieToLibrary";
-            // var content = new StringContent(JsonConvert.SerializeObject(new { movie, mediaUser }), Encoding.UTF8, "application/json");
-            //
-            // HttpClient client = new HttpClient();
-            //
-            // client.PostAsync(url, content);
         }
 
         public bool AddSerieToLibrary(Serie serie)
@@ -206,7 +197,6 @@ namespace Client_GruppForms
                 string json = JsonConvert.SerializeObject(serie);
                 HttpClient client = new HttpClient();
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
                 var response = client.PostAsync(url, content).Result;
 
                 if (response.IsSuccessStatusCode)
@@ -215,13 +205,11 @@ namespace Client_GruppForms
                 }
                 else
                 {
-                    // Handle unsuccessful response
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                // Handle exception
                 MessageBox.Show("Exception: " + ex.Message);
                 return false;
             }
@@ -243,13 +231,11 @@ namespace Client_GruppForms
                 }
                 else
                 {
-                    // Hantera felaktigt svar
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                // Hantera exception
                 MessageBox.Show("Exception: " + ex.Message);
                 return null;
             }
@@ -271,13 +257,11 @@ namespace Client_GruppForms
                 }
                 else
                 {
-                    // Hantera felaktigt svar
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                // Hantera exception
                 MessageBox.Show("Exception: " + ex.Message);
                 return null;
             }
@@ -291,7 +275,7 @@ namespace Client_GruppForms
                 string json = JsonConvert.SerializeObject(movie);
                 HttpClient client = new HttpClient();
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
+
                 var response = client.PostAsync(url, content).Result;
 
                 if (response.IsSuccessStatusCode)
@@ -300,13 +284,11 @@ namespace Client_GruppForms
                 }
                 else
                 {
-                    // Handle unsuccessful response
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                // Handle exception
                 MessageBox.Show("Exception: " + ex.Message);
                 return false;
             }
@@ -320,7 +302,6 @@ namespace Client_GruppForms
                 string json = JsonConvert.SerializeObject(serie);
                 HttpClient client = new HttpClient();
                 HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                //var requestContent = new StringContent(JsonConvert.SerializeObject(new { Movie = movie, MediaUser = mediaUser }), System.Text.Encoding.UTF8, "application/json");
                 var response = client.PostAsync(url, content).Result;
 
                 if (response.IsSuccessStatusCode)
@@ -329,13 +310,11 @@ namespace Client_GruppForms
                 }
                 else
                 {
-                    // Handle unsuccessful response
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                // Handle exception
                 MessageBox.Show("Exception: " + ex.Message);
                 return false;
             }

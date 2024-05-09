@@ -105,9 +105,11 @@
             // 
             pictureBox.Location = new Point(265, 44);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(193, 157);
+            pictureBox.Size = new Size(208, 157);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.TabIndex = 7;
             pictureBox.TabStop = false;
+            pictureBox.Click += pictureBox_Click;
             // 
             // SignOutButton
             // 
@@ -228,11 +230,11 @@
             // genreText
             // 
             genreText.AutoEllipsis = true;
-            genreText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            genreText.Location = new Point(165, 363);
+            genreText.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            genreText.Location = new Point(165, 356);
             genreText.Name = "genreText";
             genreText.RightToLeft = RightToLeft.No;
-            genreText.Size = new Size(144, 27);
+            genreText.Size = new Size(144, 34);
             genreText.TabIndex = 26;
             genreText.Text = "genre";
             genreText.TextAlign = ContentAlignment.TopCenter;

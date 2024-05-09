@@ -10,7 +10,7 @@ namespace Client_GruppForms.Objects
 {
     public class MediaUser
     {
-        //private static int lastId = 0;
+
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

@@ -121,7 +121,8 @@ namespace Client_GruppForms
                     }
                     else
                     {
-                        mediaImage.Image = null;
+                        imagePath = Path.Combine(imageFolderPath, "imageNotFound.jpg");
+                        mediaImage.Image = Image.FromFile(imagePath);
                     }
                     
                     titleLabel.Text = movie.Title;
@@ -157,7 +158,8 @@ namespace Client_GruppForms
                     }
                     else
                     {
-                        mediaImage.Image = null;
+                        imagePath = Path.Combine(imageFolderPath, "imageNotFound.jpg");
+                        mediaImage.Image = Image.FromFile(imagePath);
                     }
 
                     
