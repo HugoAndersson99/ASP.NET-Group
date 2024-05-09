@@ -18,7 +18,6 @@ namespace ASP.Net_GruppUPG.Objects
         public int ReleaseYear { get; set; }
         public int LengthMin { get; set; }
 
-        //public Image CoverImage { get; set; }
 
         public List<MediaUser> Users { get; set; } = new List<MediaUser>();
 

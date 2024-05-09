@@ -79,10 +79,6 @@ namespace ASP.Net_GruppUPG.Services
                     return false;
                 }
 
-                //movie.Users.Add(choosenUser);
-
-                //choosenUser.MoviesInLibrary.Add(movie);
-
                 MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
                 Movie movieFromDb = db.Movie.Find(movie.MovieId);
 
@@ -107,10 +103,6 @@ namespace ASP.Net_GruppUPG.Services
                 {
                     return false;
                 }
-
-               // serie.Users.Add(choosenUser);
-               //
-               // choosenUser.SeriesInLibrary.Add(serie);
 
                 MediaUser userFromDb = db.MediaUser.Find(choosenUser.Id);
                 Serie serieFromDb = db.Serie.Find(serie.SerieId);

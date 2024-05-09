@@ -7,16 +7,16 @@ namespace ASP.Net_GruppUPG
 {
     public class Program
     {
-        //TESTA OM GITHUB FUNGERAR
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+
             builder.Services.AddRazorPages();
             builder.Services.AddControllers().AddJsonOptions(option =>
                 option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-            //builder.Services.AddControllers();
+
             builder.Services.AddTransient<MediaUserService>();
             builder.Services.AddTransient<MovieService>();
             builder.Services.AddTransient<SerieService>();
